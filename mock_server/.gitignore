@@ -54,3 +54,4 @@ prisma/dev.db-journal
 
 # Uploads (if storing user uploads locally)
 uploads/
+dataflow_infycore.tsx
