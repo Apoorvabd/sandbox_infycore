@@ -49,4 +49,5 @@ const transactions =[
   { "transactionId": "tx_038", "accountId": "acc_005", "rawMerchant": "SALARY JUNE", "amount": 3000, "direction": "credit", "clearedDate": "2026-06-01" },
   { "transactionId": "tx_039", "accountId": "acc_005", "rawMerchant": "OLA CAB", "amount": 6.30, "direction": "debit", "clearedDate": "2026-06-02" },
   { "transactionId": "tx_040", "accountId": "acc_005", "rawMerchant": "BHARAT PETROLEUM", "amount": 48.60, "direction": "debit", "clearedDate": "2026-06-04" }
-]
+];
+export default transactions;

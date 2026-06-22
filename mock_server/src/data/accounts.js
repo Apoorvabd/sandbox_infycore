@@ -35,3 +35,4 @@ const accounts=[
     "currentBalance": 2765.40
   }
 ];
+export default accounts;
