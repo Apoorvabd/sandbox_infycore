@@ -1,0 +1,22 @@
+const BANK_INSTITUTIONS = [
+  { id: 'ins_apex', name: 'Apex Bank & Trust', logo: '🏦', bg: 'from-emerald-500 to-teal-700' },
+  { id: 'ins_horizon', name: 'Horizon Credit Union', logo: '💳', bg: 'from-blue-500 to-indigo-700' },
+  { id: 'ins_stellar', name: 'Stellar Wealth Management', logo: '🌟', bg: 'from-purple-500 to-pink-700' },
+  { id: 'ins_zenith', name: 'Zenith National Bank', logo: '🏛️', bg: 'from-gray-600 to-gray-900' },
+  { id: 'ins_aurora', name: 'Aurora Financial Services', logo: '🌅', bg: 'from-orange-400 to-pink-600' },
+  { id: 'ins_nova', name: 'Nova Credit Bank', logo: '🚀', bg: 'from-sky-500 to-blue-700' },
+  { id: 'ins_pinnacle', name: 'Pinnacle Bank Group', logo: '📈', bg: 'from-green-500 to-emerald-700' },
+  { id: 'ins_summit', name: 'Summit Trust Bank', logo: '⛰️', bg: 'from-slate-500 to-gray-800' },
+  { id: 'ins_orbit', name: 'Orbit Financial Bank', logo: '🪐', bg: 'from-indigo-500 to-purple-700' },
+  { id: 'ins_vertex', name: 'Vertex Banking Corp', logo: '📊', bg: 'from-cyan-500 to-blue-800' },
+  { id: 'ins_crescent', name: 'Crescent Savings Bank', logo: '🌙', bg: 'from-violet-500 to-indigo-800' },
+  { id: 'ins_legacy', name: 'Legacy National Trust', logo: '📜', bg: 'from-yellow-600 to-orange-700' },
+  { id: 'ins_orion', name: 'Orion Bank Alliance', logo: '⭐', bg: 'from-blue-600 to-sky-900' },
+  { id: 'ins_fusion', name: 'Fusion Finance Bank', logo: '⚡', bg: 'from-pink-500 to-red-700' },
+  { id: 'ins_everest', name: 'Everest Banking Co.', logo: '🏔️', bg: 'from-green-600 to-teal-900' },
+  { id: 'ins_clover', name: 'Clover Financial Bank', logo: '🍀', bg: 'from-lime-500 to-green-700' },
+  { id: 'ins_sapphire', name: 'Sapphire Capital Bank', logo: '💎', bg: 'from-blue-400 to-indigo-600' },
+  { id: 'ins_titan', name: 'Titan Banking Solutions', logo: '🛡️', bg: 'from-gray-700 to-black' },
+  { id: 'ins_meridian', name: 'Meridian Bank Ltd.', logo: '🌐', bg: 'from-teal-500 to-cyan-700' },
+  { id: 'ins_ember', name: 'Ember Financial Group', logo: '🔥', bg: 'from-red-500 to-orange-700' }
+];
