@@ -1,137 +1,209 @@
-import axios from 'axios';
-import Mock_api from '../../utils/api.js';
+import axios from "axios";
 import crypto from "crypto";
 
+import Mock_api from "../../utils/api.js";
+import { processTransactions } from "../etl/etl.service.js";
+
 import {
-    findInstitutionById,
-    createInstitution,
-    findAccountByExternalId,
-    createAccount,
-    findTransactionByExternalId,
-    createTransaction
+    getAllAccounts,
+    createTransactionsBulk,
+    createAccountsBulk,
+    createInstitutionsBulk
 } from "./ingestion.repository.js";
 
 const runSync = async () => {
-    try {
-        console.log(process.env.MOCK_SERVER_URL);
-        const [institutionsResponse, accountsResponse, transactionsResponse] = await Promise.all([
-            axios.get(`${Mock_api}/institutions`),
-            axios.get(`${Mock_api}/accounts`),
-            axios.get(`${Mock_api}/transactions`)
-        ]);
-        const stats = {
-            institutionsInserted: 0,
-            accountsInserted: 0,
-            transactionsInserted: 0,
-            duplicatesSkipped: 0
-        };
-        
-        const institutions = institutionsResponse.data.data;
-        const accounts = accountsResponse.data.data;
-        const transactions = transactionsResponse.data.data;
-// fetching institutions and inserting them into the database
-        for (const institution of institutions) {
 
-        const existingInstitution =
-                await findInstitutionById(institution.id);
+    console.time("TOTAL_SYNC");
 
-        if (existingInstitution) {
-                stats.duplicatesSkipped++;
-                continue;
-        }
+    // =====================================
+    // FETCH DATA
+    // =====================================
 
-        await createInstitution({
-                id: institution.id,
-                name: institution.name
-        });
+    console.time("FETCH_DATA");
 
-        stats.institutionsInserted++;
+    const [
+        institutionsResponse,
+        accountsResponse,
+        transactionsResponse
+    ] = await Promise.all([
+        axios.get(`${Mock_api}/institutions`),
+        axios.get(`${Mock_api}/accounts`),
+        axios.get(`${Mock_api}/transactions`)
+    ]);
+
+    console.timeEnd("FETCH_DATA");
+
+    const institutions =
+        institutionsResponse.data.data;
+
+    const accounts =
+        accountsResponse.data.data;
+
+    const transactions =
+        transactionsResponse.data.data;
+
+    const stats = {
+        institutionsInserted: 0,
+        accountsInserted: 0,
+        transactionsInserted: 0
+    };
+
+    // =====================================
+    // INSTITUTIONS
+    // =====================================
+
+    console.time("INSTITUTIONS_INSERT");
+
+    stats.institutionsInserted =
+        await createInstitutionsBulk(
+            institutions
+        );
+
+    console.timeEnd("INSTITUTIONS_INSERT");
+
+    // =====================================
+    // ACCOUNTS PREPARE
+    // =====================================
+
+    console.time("ACCOUNT_TRANSFORM");
+
+    const accountsToInsert =
+        accounts.map(account => ({
+            id: crypto.randomUUID(),
+
+            externalAccountId:
+                account.accountId,
+
+            institutionName:
+                account.institutionId,
+
+            accountName:
+                account.accountName,
+
+            accountType:
+                account.accountType,
+
+            currentBalance:
+                account.currentBalance
+        }));
+
+    console.timeEnd("ACCOUNT_TRANSFORM");
+
+    // =====================================
+    // ACCOUNTS INSERT
+    // =====================================
+
+    console.time("ACCOUNT_INSERT");
+
+    stats.accountsInserted =
+        await createAccountsBulk(
+            accountsToInsert
+        );
+
+    console.timeEnd("ACCOUNT_INSERT");
+
+    // =====================================
+    // LOAD ACCOUNT MAP
+    // =====================================
+
+    console.time("ACCOUNT_MAP_FETCH");
+
+    const dbAccounts =
+        await getAllAccounts();
+
+    console.timeEnd("ACCOUNT_MAP_FETCH");
+
+    console.time("ACCOUNT_MAP_BUILD");
+
+    const accountMap = new Map();
+
+    for (const account of dbAccounts) {
+
+        accountMap.set(
+            account.external_account_id,
+            account.id
+        );
     }
 
-// fetching accounts and inserting them into the database
+    console.timeEnd("ACCOUNT_MAP_BUILD");
 
-    for (const account of accounts) {
+    // =====================================
+    // TRANSACTION TRANSFORM
+    // =====================================
 
-    const existingAccount =
-        await findAccountByExternalId(account.accountId);
+    console.time("TRANSACTION_TRANSFORM");
 
-    if (existingAccount) {
-        stats.duplicatesSkipped++;
-        continue;
-    }
+    const transactionsToInsert = [];
 
-    await createAccount({
-        id: crypto.randomUUID(),
-
-        externalAccountId: account.accountId,
-
-        institutionName: account.institutionId,
-
-        accountName: account.accountName,
-
-        accountType: account.accountType,
-
-        currentBalance: account.currentBalance
-    });
-
-    stats.accountsInserted++;
-}
-// fetching transactions and inserting them into the database
     for (const transaction of transactions) {
 
-    const existingTransaction =
-        await findTransactionByExternalId(
-            transaction.transactionId
-        );
+        const accountId =
+            accountMap.get(
+                transaction.accountId
+            );
 
-    if (existingTransaction) {
-        stats.duplicatesSkipped++;
-        continue;
+        if (!accountId) {
+            continue;
+        }
+
+        transactionsToInsert.push({
+            id: crypto.randomUUID(),
+
+            externalTransactionId:
+                transaction.transactionId,
+
+            accountId,
+
+            rawMerchant:
+                transaction.rawMerchant,
+
+            amount:
+                transaction.amount,
+
+            direction:
+                transaction.direction,
+
+            clearedDate:
+                transaction.clearedDate
+        });
     }
 
-    const account =
-        await findAccountByExternalId(
-            transaction.accountId
+    console.timeEnd("TRANSACTION_TRANSFORM");
+
+    // =====================================
+    // TRANSACTION INSERT
+    // =====================================
+
+    console.time("TRANSACTION_INSERT");
+
+    stats.transactionsInserted =
+        await createTransactionsBulk(
+            transactionsToInsert
         );
 
-    if (!account) {
-        console.warn(
-            `Account not found: ${transaction.accountId}`
-        );
-        continue;
-    }
+    console.timeEnd("TRANSACTION_INSERT");
 
-    await createTransaction({
-        id: crypto.randomUUID(),
+    // =====================================
+    // ETL
+    // =====================================
 
-        externalTransactionId:
-            transaction.transactionId,
+    console.time("ETL_PROCESS");
 
-        accountId: account.id,
+    const etlResult =
+        await processTransactions();
 
-        rawMerchant:
-            transaction.rawMerchant,
+    console.timeEnd("ETL_PROCESS");
 
-        amount:
-            transaction.amount,
+    // =====================================
+    // TOTAL
+    // =====================================
 
-        direction:
-            transaction.direction,
+    console.timeEnd("TOTAL_SYNC");
 
-        clearedDate:
-            transaction.clearedDate
-    });
-
-    stats.transactionsInserted++;
-}
-return stats; 
-
-        console.log('Institutions:', institutions.length);
-        console.log('Accounts:', accounts.length);
-        console.log('Transactions:', transactions.length);
-    } catch (error) {
-        console.error('Error occurred while syncing transactions:', error);
-        throw error;
-    }
+    return {
+        ...stats,
+        etl: etlResult
+    };
 };
+
 export default runSync;

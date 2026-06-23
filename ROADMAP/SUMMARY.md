@@ -2,6 +2,8 @@ Assignment ka Actual Goal
 
 <!--  -->
 abhi na muje db m ekuch verify karana hai 
+kuch categories or add krni hai kyuki db me abhi bhi bahut jgh uncategorised aa rhi hai rules me kr lunga
+
 
 Assignment ka goal Plaid integration banana nahi hai.
 
