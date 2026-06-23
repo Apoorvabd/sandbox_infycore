@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import ingestionRoutes from "./modules/ingestion/ingestion.route.js";
 
 import { pool } from "./config/db.js";
 
@@ -69,6 +70,7 @@ app.get("/health/db",asyncHandler(async (req, res) => {
     })
 );
 
+app.use("/api/ingestion", ingestionRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
