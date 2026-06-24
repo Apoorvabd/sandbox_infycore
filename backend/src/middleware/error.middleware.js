@@ -1,10 +1,10 @@
 import ApiError from "../utils/ApiError.js";
 
-const notFoundHandler = (req, res, next) => {
+export function notFoundHandler(req, res, next) {
     next(new ApiError(404, `Route not found: ${req.method} ${req.originalUrl}`));
 };
 
-const errorHandler = (err, req, res, next) => {
+export const errorHandler = (err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     const message = err.message || "Internal Server Error";
 
@@ -17,4 +17,3 @@ const errorHandler = (err, req, res, next) => {
     });
 };
 
-export { notFoundHandler, errorHandler };

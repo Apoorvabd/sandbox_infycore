@@ -4,9 +4,12 @@ import {
     updateProcessedTransaction
 } from "./etl.repository.js";
 
+import { normalizeMerchant } from "./normalizer/merchant.normalizer.js";
+
 export const processTransactions = async () => {
 
-    const rules = await getAllRules();
+    const rules =
+        await getAllRules();
 
     const transactions =
         await getUnprocessedTransactions();
@@ -19,48 +22,25 @@ export const processTransactions = async () => {
 
     for (const transaction of transactions) {
 
-        let normalizedMerchant =
-            transaction.raw_merchant;
-
-        let category =
-            "Uncategorized";
-
-        // Rule Matching
-        for (const rule of rules) {
-
-            const regex = new RegExp(
-                rule.keyword,
-                "i"
+        const result =
+            normalizeMerchant(
+                transaction.raw_merchant,
+                rules
             );
 
-            if (
-                regex.test(
-                    transaction.raw_merchant
-                )
-            ) {
-
-                normalizedMerchant =
-                    rule.clean_merchant_name;
-
-                category =
-                    rule.target_category;
-
-                stats.categorized++;
-
-                break;
-            }
-        }
-
         if (
-            category === "Uncategorized"
+            result.category ===
+            "Uncategorized"
         ) {
             stats.uncategorized++;
+        } else {
+            stats.categorized++;
         }
 
         await updateProcessedTransaction(
             transaction.id,
-            normalizedMerchant,
-            category
+            result.normalizedMerchant,
+            result.category
         );
 
         stats.processed++;
@@ -69,4 +49,3 @@ export const processTransactions = async () => {
     return stats;
 };
 
-export default processTransactions;

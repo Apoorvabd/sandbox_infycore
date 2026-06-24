@@ -45,4 +45,17 @@ export const updateProcessedTransaction = async (
 
     return result.rows[0];
 };
-export default { getAllRules, getUnprocessedTransactions, updateProcessedTransaction };
+
+export const resetProcessedTransactions =
+async () => {
+
+    await pool.query(`
+        UPDATE transactions
+        SET
+            processed = false,
+            normalized_merchant = NULL,
+            category = NULL
+    `);
+};
+
+export default { getAllRules, getUnprocessedTransactions, updateProcessedTransaction , resetProcessedTransactions };
