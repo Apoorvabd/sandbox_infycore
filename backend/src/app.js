@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 import ingestionRoutes from "./modules/ingestion/ingestion.route.js";
 import rulesRoutes from "./modules/rules/rules.routes.js";
-import dashboardRoutes from "./modules/dashboardApi/dashboard.route.js";
+import dashboardRoutes from "./modules/dashboardApi/dashboardApi.route.js";
+import anomalyRoutes from "./modules/anomaly/anomaly.routes.js";
 
 import { pool } from "./config/db.js";
 
@@ -44,9 +45,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 
-app.get(
-    "/health",
-    (req, res) => {
+app.get( "/health",(req, res) => {
         return res.status(200).json(
             new ApiResponse(
                 200,
@@ -75,8 +74,13 @@ app.get("/health/db",asyncHandler(async (req, res) => {
 app.use("/api/ingestion", ingestionRoutes);
 app.use("/api/rules", rulesRoutes);
 app.use("/api/dashboard",dashboardRoutes);
+app.use(
+    "/api/anomaly",
+    anomalyRoutes
+);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
+
 
 export default app;
