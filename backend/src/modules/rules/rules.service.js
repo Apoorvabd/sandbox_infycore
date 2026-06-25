@@ -1,11 +1,7 @@
 //all buisness logic will be written here and will be called from controller
 import { errorHandler } from "../../middleware/error.middleware.js";
 import {resetProcessedTransactions} from "../etl/etl.repository.js";
-
 import {processTransactions} from "../etl/etl.service.js";
-
-
-
 import { getRulesFromDB, createRuleInDB, updateRuleInDB,deleteRuleFromDB }from "./rules.repository.js";
 import { normalizeMerchant } from "../etl/normalizer/merchant.normalizer.js";
 
@@ -18,12 +14,9 @@ const getAllRules = async () => {
     }
     return rules;
 };
-const testRule = async (
-    merchant
-) => {
+const testRule = async ( merchant) => {
 
     const rules =await getAllRules();
-
     return normalizeMerchant(merchant,rules);
 };
 const createRule = async (ruleData) => {
@@ -49,12 +42,7 @@ const deleteRule = async (ruleId) => {
 }
 const reprocessTransactions =async () => {
 
-    console.time("RESET");
-
-await resetProcessedTransactions();
-
-console.timeEnd("RESET");
-
+    await resetProcessedTransactions();
     return await processTransactions();
 };
 

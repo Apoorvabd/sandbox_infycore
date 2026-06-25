@@ -8,11 +8,14 @@ import {
     getAnomalyCount,
     getAnomalyBreakdown
 } from "./anomaly.repository.js";
+import ApiError from "../../utils/ApiError.js";
 
 export const runAnomalyDetection = async () => {
-
+try{
     await resetAnomalies();
-
+}catch (error) {
+    throw new ApiError(500, "Failed to reset anomalies");
+}
     const stats = {
         largeTransactions: 0,
         uncategorized: 0,
@@ -23,16 +26,16 @@ export const runAnomalyDetection = async () => {
     // -------------------------
     // Uncategorized
     // -------------------------
-
-    const uncategorizedTransactions =
+    try{
+         const uncategorizedTransactions =
         await getUncategorizedTransactions();
+     }catch (error) {
+        throw new ApiError(500, "Failed to fetch uncategorized transactions");
+    }
 
     for (const transaction of uncategorizedTransactions) {
 
-        await markAsAnomaly(
-            transaction.id,
-            "Unknown Merchant"
-        );
+        await markAsAnomaly(transaction.id,"Unknown Merchant");
 
         stats.uncategorized++;
     }

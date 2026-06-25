@@ -11,9 +11,7 @@ import {
 import ApiResponse from "../../utils/ApiResponse.js";
 import ApiError from "../../utils/ApiError.js";
 
-/**
- * GET ALL RULES
- */
+
 
 const getRules = asyncHandler(async (req, res) => {
     try {
@@ -31,9 +29,6 @@ const getRules = asyncHandler(async (req, res) => {
     }
 });
 
-/**
- * CREATE RULE
- */
 const CreateRule = asyncHandler(async (req, res) => {
     try {
         if (!req.body || Object.keys(req.body).length === 0) {
@@ -54,9 +49,6 @@ const CreateRule = asyncHandler(async (req, res) => {
     }
 });
 
-/**
- * UPDATE RULE
- */
 const UpdateRule = asyncHandler(async (req, res) => {
     try {
         const { id } = req.params;
@@ -83,9 +75,6 @@ const UpdateRule = asyncHandler(async (req, res) => {
     }
 });
 
-/**
- * DELETE RULE
- */
 const DeleteRule = asyncHandler(async (req, res) => {
     try {
         const { id } = req.params;
@@ -112,9 +101,6 @@ const DeleteRule = asyncHandler(async (req, res) => {
     }
 });
 
-/**
- * REPROCESS TRANSACTIONS
- */
 const reprocess = asyncHandler(async (req, res) => {
     try {
         console.time("REPROCESS");
@@ -145,18 +131,11 @@ const reprocess = asyncHandler(async (req, res) => {
     }
 });
 
-const testRuleController =asyncHandler(async (
-    req,
-    res
-) => {
-
+const testRuleController =asyncHandler(async (req,res) => {
     const { merchant } =
         req.body;
 
-    const result =
-        await testRule(
-            merchant
-        );
+    const result = await testRule(merchant);
 
     return res.status(200).json(
         new ApiResponse(

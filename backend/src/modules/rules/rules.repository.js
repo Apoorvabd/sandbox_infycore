@@ -23,7 +23,7 @@ export const createRuleInDB = async (ruleData) => {
         clean_merchant_name
     } = ruleData;
 
-    const id = uuidv4(); // ✅ correct way
+    const id = uuidv4(); // it is to create a unique identifier for the new rule
 
     const result = await pool.query(
         `
