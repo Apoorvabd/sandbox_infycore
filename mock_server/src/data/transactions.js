@@ -48,6 +48,55 @@ const transactions =[
 
   { "transactionId": "tx_038", "accountId": "acc_005", "rawMerchant": "SALARY JUNE", "amount": 3000, "direction": "credit", "clearedDate": "2026-06-01" },
   { "transactionId": "tx_039", "accountId": "acc_005", "rawMerchant": "OLA CAB", "amount": 6.30, "direction": "debit", "clearedDate": "2026-06-02" },
-  { "transactionId": "tx_040", "accountId": "acc_005", "rawMerchant": "BHARAT PETROLEUM", "amount": 48.60, "direction": "debit", "clearedDate": "2026-06-04" }
+  { "transactionId": "tx_040", "accountId": "acc_005", "rawMerchant": "BHARAT PETROLEUM", "amount": 48.60, "direction": "debit", "clearedDate": "2026-06-04" },
+  {
+  "transactionId": "tx_041",
+  "accountId": "acc_001",
+  "rawMerchant": "AMZN Mktp US*HJ291",
+  "amount": 114.99,
+  "direction": "debit",
+  "clearedDate": "2026-06-15"
+},
+{
+  "transactionId": "tx_042",
+  "accountId": "acc_002",
+  "rawMerchant": "APPLE STORE",
+  "amount": 999.00,
+  "direction": "debit",
+  "clearedDate": "2026-06-16"
+},
+{
+  "transactionId": "tx_043",
+  "accountId": "acc_003",
+  "rawMerchant": "CRYPTOXCHANGE XYZ",
+  "amount": 72.50,
+  "direction": "debit",
+  "clearedDate": "2026-06-18"
+},
+{
+  "transactionId": "tx_044",
+  "accountId": "acc_004",
+  "rawMerchant": "ABCDPAYMENT9283",
+  "amount": 45.00,
+  "direction": "debit",
+  "clearedDate": "2026-06-19"
+},
+{
+  "transactionId": "tx_045",
+  "accountId": "acc_005",
+  "rawMerchant": "UNKNOWN MERCHANT TEST",
+  "amount": 12.00,
+  "direction": "debit",
+  "clearedDate": "2026-06-20"
+},
+{
+  "transactionId": "tx_046",
+  "accountId": "acc_001",
+  "rawMerchant": "DARKWEB SERVICES",
+  "amount": 450.00,
+  "direction": "debit",
+  "clearedDate": "2026-06-21"
+}
+
 ];
 export default transactions;
