@@ -4,7 +4,8 @@ import {
     createRule,
     updateRule,
     deleteRule,
-    reprocessTransactions
+    reprocessTransactions,
+    testRule
 } from "./rules.service.js";
 
 import ApiResponse from "../../utils/ApiResponse.js";
@@ -13,6 +14,7 @@ import ApiError from "../../utils/ApiError.js";
 /**
  * GET ALL RULES
  */
+
 const getRules = asyncHandler(async (req, res) => {
     try {
         const rules = await getAllRules();
@@ -143,10 +145,33 @@ const reprocess = asyncHandler(async (req, res) => {
     }
 });
 
+const testRuleController =asyncHandler(async (
+    req,
+    res
+) => {
+
+    const { merchant } =
+        req.body;
+
+    const result =
+        await testRule(
+            merchant
+        );
+
+    return res.status(200).json(
+        new ApiResponse(
+            200,
+            result,
+            "Rule tested successfully"
+        )
+    );
+});
+
 export {
     getRules,
     CreateRule,
     UpdateRule,
     DeleteRule,
-    reprocess
+    reprocess,
+    testRuleController
 };

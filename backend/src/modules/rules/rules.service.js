@@ -6,17 +6,26 @@ import {processTransactions} from "../etl/etl.service.js";
 
 
 
-import { getRulesFromDB, createRuleInDB, updateRuleInDB, deleteRuleFromDB } from "./rules.repository.js";
+import { getRulesFromDB, createRuleInDB, updateRuleInDB,deleteRuleFromDB }from "./rules.repository.js";
+import { normalizeMerchant } from "../etl/normalizer/merchant.normalizer.js";
+
 
 const getAllRules = async () => {
     const rules = await getRulesFromDB();
-    console.log("rules from db", rules);
+    console.log("rules", rules);
     if(!rules){
         throw new Error("Failed to fetch rules");
     }
     return rules;
 };
+const testRule = async (
+    merchant
+) => {
 
+    const rules =await getAllRules();
+
+    return normalizeMerchant(merchant,rules);
+};
 const createRule = async (ruleData) => {
     const newRule = await createRuleInDB(ruleData);
     if(!newRule){
@@ -24,7 +33,6 @@ const createRule = async (ruleData) => {
     }
     return newRule;
 }
-
 const updateRule = async (ruleId, ruleData) => {
     const updatedRule = await updateRuleInDB(ruleId, ruleData);
     if(!updatedRule){
@@ -32,7 +40,6 @@ const updateRule = async (ruleId, ruleData) => {
     }
     return updatedRule;
 }
-
 const deleteRule = async (ruleId) => {
     const deletedRule = await deleteRuleFromDB(ruleId);
     if(!deletedRule){
@@ -40,9 +47,7 @@ const deleteRule = async (ruleId) => {
     }
     return deletedRule;
 }
-
-export const reprocessTransactions =
-async () => {
+const reprocessTransactions =async () => {
 
     console.time("RESET");
 
@@ -53,4 +58,4 @@ console.timeEnd("RESET");
     return await processTransactions();
 };
 
-export { getAllRules, createRule, updateRule, deleteRule };
+export { getAllRules, createRule, updateRule, deleteRule, reprocessTransactions , testRule};
