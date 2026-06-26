@@ -96,6 +96,14 @@ const transactions =[
   "amount": 450.00,
   "direction": "debit",
   "clearedDate": "2026-06-21"
+},
+{
+  "transactionId": "tx_047",
+  "accountId": "acc_001",
+  "rawMerchant": "GITHUB SUBSCRIPTION",
+  "amount": 450.00,
+  "direction": "debit",
+  "clearedDate": "2026-06-21"
 }
 
 ];
