@@ -4,6 +4,12 @@ import ingestionRoutes from "./modules/ingestion/ingestion.route.js";
 import rulesRoutes from "./modules/rules/rules.routes.js";
 import dashboardRoutes from "./modules/dashboardApi/dashboardApi.route.js";
 import anomalyRoutes from "./modules/anomaly/anomaly.routes.js";
+import ledgerRoutes from "./modules/ledger/ledger.routes.js";
+import {
+    swaggerUi,
+    swaggerSpec
+}
+from "./config/swagger.js";
 
 import { pool } from "./config/db.js";
 
@@ -78,9 +84,16 @@ app.use(
     "/api/anomaly",
     anomalyRoutes
 );
+app.use(
+    "/api-docs",
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerSpec)
+);
 
+app.use("/api/ledger", ledgerRoutes);
 app.use(notFoundHandler);
 app.use(errorHandler);
+
 
 
 export default app;

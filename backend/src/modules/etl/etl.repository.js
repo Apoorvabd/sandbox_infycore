@@ -1,7 +1,6 @@
 import { pool } from "../../config/db.js";
 
 export const getAllRules = async () => {
-
     const result = await pool.query(`
         SELECT *
         FROM classification_rules
@@ -21,33 +20,44 @@ export const getUnprocessedTransactions = async () => {
 };
 
 export const updateProcessedTransaction = async (
-    transactionId,
-    normalizedMerchant,
-    category
+    updates
 ) => {
-
-    const result = await pool.query(
-        `
-        UPDATE transactions
+    if(updates.length === 0){
+        return;
+    }
+    let palceholders = [];
+    let values = [];
+    let idx=1;
+    for(const update of updates){
+        palceholders.push(`($${idx++},$${idx++},$${idx++})`);
+        values.push(update.id,update.normalizedMerchant,update.category);
+    }
+    console.log(updates.length);
+console.log(values);
+   const result =await pool.query (
+        
+        `UPDATE transactions AS t
         SET
-            normalized_merchant = $1,
-            category = $2,
+            normalized_merchant = v.normalized_merchant,
+            category = v.category,
             processed = TRUE
-        WHERE id = $3
-        RETURNING *
+        FROM (
+            VALUES
+            ${palceholders.join(",")}
+        ) AS v(
+            id,
+            normalized_merchant,
+            category
+        )
+       WHERE t.id = v.id::uuid
         `,
-        [
-            normalizedMerchant,
-            category,
-            transactionId
-        ]
+        values
     );
-
     return result.rows[0];
+
 };
 
-export const resetProcessedTransactions =
-async () => {
+export const resetProcessedTransactions = async () => {
 
     await pool.query(`
         UPDATE transactions
@@ -57,5 +67,6 @@ async () => {
             category = NULL
     `);
 };
+
 
 export default { getAllRules, getUnprocessedTransactions, updateProcessedTransaction , resetProcessedTransactions };

@@ -12,7 +12,20 @@ import ApiResponse from "../../utils/ApiResponse.js";
 import ApiError from "../../utils/ApiError.js";
 
 
-
+/**
+ * @swagger
+ * /rules:
+ *   get:
+ *     summary: Get all normalization rules
+ *     description: Fetches all merchant normalization rules stored in the database.
+ *     tags:
+ *       - Rules
+ *     responses:
+ *       200:
+ *         description: Rules fetched successfully
+ *       500:
+ *         description: Internal Server Error
+ */
 const getRules = asyncHandler(async (req, res) => {
     try {
         const rules = await getAllRules();
@@ -28,7 +41,27 @@ const getRules = asyncHandler(async (req, res) => {
         );
     }
 });
-
+/**
+ * @swagger
+ * /rules:
+ *   post:
+ *     summary: Create Rule
+ *     tags:
+ *       - Rules
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Rule'
+ *     responses:
+ *       201:
+ *         description: Rule created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ApiResponse'
+ */
 const CreateRule = asyncHandler(async (req, res) => {
     try {
         if (!req.body || Object.keys(req.body).length === 0) {
@@ -48,7 +81,34 @@ const CreateRule = asyncHandler(async (req, res) => {
         );
     }
 });
-
+/**
+ * @swagger
+ * /rules/{id}:
+ *   put:
+ *     summary: Update a normalization rule
+ *     description: Updates an existing normalization rule by ID.
+ *     tags:
+ *       - Rules
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           example:
+ *             keyword: amazon
+ *             clean_merchant_name: Amazon
+ *             target_category: Shopping
+ *     responses:
+ *       200:
+ *         description: Rule updated successfully
+ *       404:
+ *         description: Rule not found
+ */
 const UpdateRule = asyncHandler(async (req, res) => {
     try {
         const { id } = req.params;
@@ -74,7 +134,26 @@ const UpdateRule = asyncHandler(async (req, res) => {
         );
     }
 });
-
+/**
+ * @swagger
+ * /rules/{id}:
+ *   delete:
+ *     summary: Delete a normalization rule
+ *     description: Deletes a rule using its ID.
+ *     tags:
+ *       - Rules
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Rule deleted successfully
+ *       404:
+ *         description: Rule not found
+ */
 const DeleteRule = asyncHandler(async (req, res) => {
     try {
         const { id } = req.params;
@@ -100,7 +179,20 @@ const DeleteRule = asyncHandler(async (req, res) => {
         );
     }
 });
-
+/**
+ * @swagger
+ * /rules/reprocess:
+ *   post:
+ *     summary: Reprocess all transactions
+ *     description: Re-runs the ETL normalization process using the latest rules.
+ *     tags:
+ *       - Rules
+ *     responses:
+ *       200:
+ *         description: Transactions reprocessed successfully
+ *       500:
+ *         description: Failed to reprocess transactions
+ */
 const reprocess = asyncHandler(async (req, res) => {
     try {
         console.time("REPROCESS");
@@ -130,7 +222,26 @@ const reprocess = asyncHandler(async (req, res) => {
         );
     }
 });
-
+/**
+ * @swagger
+ * /rules/test:
+ *   post:
+ *     summary: Test merchant normalization
+ *     description: Tests how a merchant name would be normalized without saving anything to the database.
+ *     tags:
+ *       - Rules
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           example:
+ *             rawMerchant: AMZN Mktp US*HJ291
+ *     responses:
+ *       200:
+ *         description: Rule tested successfully
+ *       400:
+ *         description: Invalid input
+ */
 const testRuleController =asyncHandler(async (req,res) => {
     const { merchant } =
         req.body;

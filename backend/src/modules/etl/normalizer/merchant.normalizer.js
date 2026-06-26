@@ -1,32 +1,15 @@
-export const normalizeMerchant = (
-    rawMerchant,
-    rules
-) => {
-
+export const normalizeMerchant = (rawMerchant,rules) => {
     for (const rule of rules) {
-
-        const regex = new RegExp(
-            rule.keyword,
-            "i"
-        );
-
+        const regex = new RegExp(rule.keyword,"i");
         if (regex.test(rawMerchant)) {
-
             return {
-                normalizedMerchant:
-                    rule.clean_merchant_name,
-
-                category:
-                    rule.target_category
+                normalizedMerchant: rule.clean_merchant_name,
+                category:rule.target_category
             };
         }
     }
-
     return {
-        normalizedMerchant:
-            rawMerchant,
-
-        category:
-            "Uncategorized"
+        normalizedMerchant:rawMerchant,
+        category:"Uncategorized"
     };
 };

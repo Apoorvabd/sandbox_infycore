@@ -13,13 +13,13 @@ import {
 
 const runSync = async () => {
 
-    console.time("TOTAL_SYNC");
+    console.log("TOTAL_SYNC");
 
     // =====================================
     // FETCH DATA
     // =====================================
 
-    console.time("FETCH_DATA");
+    console.log("FETCH_DATA");
 
     const [
         institutionsResponse,
@@ -31,28 +31,25 @@ const runSync = async () => {
         axios.get(`${Mock_api}/transactions`)
     ]);
 
-    console.timeEnd("FETCH_DATA");
 
-    const institutions =
-        institutionsResponse.data.data;
 
-    const accounts =
-        accountsResponse.data.data;
+    console.log("FETCH_DATA");
 
-    const transactions =
-        transactionsResponse.data.data;
-
-    const stats = {
+    const institutions = institutionsResponse.data.data;
+    const accounts = accountsResponse.data.data;
+    const transactions = transactionsResponse.data.data;
+    let stats = {
         institutionsInserted: 0,
         accountsInserted: 0,
         transactionsInserted: 0
     };
 
+
     // =====================================
     // INSTITUTIONS
     // =====================================
 
-    console.time("INSTITUTIONS_INSERT");
+    console.log("INSTITUTIONS_INSERT");
 
     stats.institutionsInserted =
         await createInstitutionsBulk(
@@ -188,7 +185,8 @@ const runSync = async () => {
     // =====================================
 
     console.time("ETL_PROCESS");
-
+    console.log("Starting ETL process...");
+try{
     const etlResult =
         await processTransactions();
 
@@ -204,6 +202,11 @@ const runSync = async () => {
         ...stats,
         etl: etlResult
     };
+}
+catch(error){
+    console.error("Error during ETL process:", error);
+    throw error;
+}
 };
 
 export default runSync;
