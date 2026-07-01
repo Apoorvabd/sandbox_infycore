@@ -3,7 +3,7 @@
 import getLedger from "./ledger.service.js";
 import asyncHandler from "../../utils/asycHandler.js";
 import ApiResponse from "../../utils/ApiResponse.js";
-import ApiError from "../../utils/apiError.js";
+import ApiError from "../../utils/ApiError.js";
 import { getTransaction, ledgerSummary } from "./ledger.service.js";
 /**
  * @swagger
