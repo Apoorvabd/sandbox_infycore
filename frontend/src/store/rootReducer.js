@@ -1,5 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-const rootReducer = combineReducers({});
+import uiReducer from "../features/ui/uiSlice";
+
+const rootReducer = combineReducers({
+    ui: uiReducer,
+});
 
 export default rootReducer;
