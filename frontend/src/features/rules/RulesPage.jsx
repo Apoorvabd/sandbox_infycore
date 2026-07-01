@@ -139,7 +139,7 @@ export default function RulesPage() {
                         </button>
                         <button
                             onClick={() => { setEditingRule(null); setModalOpen(true); }}
-                            className="flex items-center gap-2 text-sm px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all shadow-lg shadow-blue-500/20"
+                            className="flex items-center gap-2 text-sm px-3.5 py-2 rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-medium transition-all shadow-lg shadow-orange-500/20"
                         >
                             <Plus className="w-4 h-4" />
                             New Rule
@@ -171,7 +171,7 @@ export default function RulesPage() {
             {/* ── Rules Table ── */}
             <Card className="overflow-hidden">
                 <div className="p-5 border-b border-slate-800 flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-blue-400" />
+                    <Zap className="w-4 h-4 text-orange-400" />
                     <h2 className="font-semibold text-slate-200">Active Rules</h2>
                 </div>
                 <div className="overflow-x-auto">
@@ -225,7 +225,7 @@ export default function RulesPage() {
                                                         setEditingRule(rule);
                                                         setModalOpen(true);
                                                     }}
-                                                    className="p-1.5 rounded-lg text-slate-400 hover:text-blue-400 hover:bg-blue-500/10 transition-all"
+                                                    className="p-1.5 rounded-lg text-slate-400 hover:text-orange-400 hover:bg-orange-500/10 transition-all"
                                                     title="Edit rule"
                                                 >
                                                     <Pencil className="w-4 h-4" />
@@ -274,7 +274,7 @@ export default function RulesPage() {
                     <button
                         onClick={handleTest}
                         disabled={testLoading || !testMerchant.trim()}
-                        className="flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium transition-all disabled:opacity-50"
+                        className="flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium transition-all disabled:opacity-50"
                     >
                         {testLoading ? <Spinner size="sm" /> : <FlaskConical className="w-4 h-4" />}
                         Run Test
@@ -386,7 +386,7 @@ function RuleModal({ isOpen, onClose, onSave, rule }) {
                     <button
                         type="submit"
                         disabled={saving}
-                        className="flex-1 h-10 px-4 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                        className="flex-1 h-10 px-4 rounded-lg bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                     >
                         {saving ? <Spinner size="sm" /> : null}
                         {rule ? "Save Changes" : "Create Rule"}

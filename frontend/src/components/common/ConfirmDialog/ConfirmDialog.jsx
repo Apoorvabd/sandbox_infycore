@@ -23,7 +23,7 @@ const ConfirmDialog = ({
     };
 
     const colors = {
-        primary: "text-blue-500 bg-blue-500/10 border-blue-500/20",
+        primary: "text-orange-500 bg-orange-500/10 border-orange-500/20",
         danger: "text-red-500 bg-red-500/10 border-red-500/20",
         success: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
     };

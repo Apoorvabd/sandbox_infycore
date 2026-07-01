@@ -18,7 +18,7 @@ export default function Header() {
                 </button>
                 
                 {/* Search / Context placeholder (can be expanded later) */}
-                <div className="hidden md:flex items-center text-slate-500 bg-slate-800/50 rounded-lg px-3 py-1.5 border border-slate-700/50 focus-within:border-blue-500/50 focus-within:ring-1 focus-within:ring-blue-500/50 transition-all">
+                <div className="hidden md:flex items-center text-slate-500 bg-slate-800/50 rounded-lg px-3 py-1.5 border border-slate-700/50 focus-within:border-orange-500/50 focus-within:ring-1 focus-within:ring-orange-500/50 transition-all">
                     <Search className="w-4 h-4 mr-2 text-slate-400" />
                     <input 
                         type="text" 
@@ -33,7 +33,7 @@ export default function Header() {
                     <span className="sr-only">View notifications</span>
                     <Bell className="w-5 h-5" aria-hidden="true" />
                 </button>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold border border-slate-700 shadow-md">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-orange-500 to-yellow-400 flex items-center justify-center text-white text-xs font-bold border border-slate-700 shadow-md">
                     <Hexagon className="w-4 h-4" />
                 </div>
             </div>

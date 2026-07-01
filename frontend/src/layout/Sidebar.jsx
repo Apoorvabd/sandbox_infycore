@@ -39,7 +39,7 @@ export default function Sidebar() {
                 )}
             >
                 <div className="flex items-center justify-between h-16 px-6 border-b border-slate-800">
-                    <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                    <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-400">
                         Sandbox Intelligence
                     </span>
                     <button
@@ -63,13 +63,13 @@ export default function Sidebar() {
                                     clsx(
                                         "flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors rounded-xl",
                                         isActive
-                                            ? "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+                                            ? "bg-orange-500/10 text-orange-500 border border-orange-500/20"
                                             : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
                                     )
                                 )}
                             >
                                 <item.icon
-                                    className={twMerge(clsx("w-5 h-5", isActive ? "text-blue-400" : "text-slate-500"))}
+                                    className={twMerge(clsx("w-5 h-5", isActive ? "text-orange-500" : "text-slate-500"))}
                                     aria-hidden="true"
                                 />
                                 {item.name}

@@ -48,12 +48,12 @@ const Alert = React.forwardRef(
 
                 <div className="flex-1 flex flex-col gap-1">
                     {title && (
-                        <h4 className="font-semibold text-slate-105 leading-tight">
+                        <h4 className="font-semibold text-slate-100 leading-tight">
                             {title}
                         </h4>
                     )}
                     {children && (
-                        <div className="text-xs text-slate-350 leading-relaxed font-normal">
+                        <div className="text-xs text-slate-300 leading-relaxed font-normal">
                             {children}
                         </div>
                     )}
@@ -65,10 +65,10 @@ const Alert = React.forwardRef(
                         onClick={onDismiss}
                         className={cn(
                             "shrink-0 -mt-1 -mr-1 p-1 rounded-lg transition-colors focus:outline-none focus:ring-2 cursor-pointer",
-                            variant === "info" && "text-blue-450 hover:bg-blue-500/20 focus:ring-blue-500/30",
-                            variant === "success" && "text-emerald-450 hover:bg-emerald-500/20 focus:ring-emerald-500/30",
-                            variant === "warning" && "text-amber-450 hover:bg-amber-500/20 focus:ring-amber-500/30",
-                            variant === "danger" && "text-red-450 hover:bg-red-500/20 focus:ring-red-500/30"
+                            variant === "info" && "text-blue-400 hover:bg-blue-500/20 focus:ring-blue-500/30",
+                            variant === "success" && "text-emerald-400 hover:bg-emerald-500/20 focus:ring-emerald-500/30",
+                            variant === "warning" && "text-amber-400 hover:bg-amber-500/20 focus:ring-amber-500/30",
+                            variant === "danger" && "text-red-400 hover:bg-red-500/20 focus:ring-red-500/30"
                         )}
                         aria-label="Dismiss alert"
                     >

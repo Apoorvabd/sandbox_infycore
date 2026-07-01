@@ -16,13 +16,13 @@ const Badge = React.forwardRef(
         const baseStyles = "inline-flex items-center gap-1.5 rounded-full font-medium transition-colors select-none";
 
         const variants = {
-            primary: "bg-blue-500/10 text-blue-400 border border-blue-500/20",
+            primary: "bg-orange-500/10 text-orange-500 border border-orange-500/20",
             secondary: "bg-slate-800 text-slate-300 border border-slate-700",
-            outline: "border border-slate-705 text-slate-400 bg-transparent",
+            outline: "border border-slate-700 text-slate-400 bg-transparent",
             success: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
             warning: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
             danger: "bg-red-500/10 text-red-400 border border-red-500/20",
-            accent: "bg-sky-500/10 text-sky-400 border border-sky-500/20",
+            accent: "bg-yellow-500/10 text-yellow-400 border border-yellow-500/20",
         };
 
         const sizes = {
@@ -31,13 +31,13 @@ const Badge = React.forwardRef(
         };
 
         const dotColors = {
-            primary: "bg-blue-400",
+            primary: "bg-orange-400",
             secondary: "bg-slate-400",
             outline: "bg-slate-400",
             success: "bg-emerald-400",
             warning: "bg-amber-400",
             danger: "bg-red-400",
-            accent: "bg-sky-400",
+            accent: "bg-yellow-400",
         };
 
         return (

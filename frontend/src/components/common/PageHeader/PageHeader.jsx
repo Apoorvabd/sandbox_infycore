@@ -28,7 +28,7 @@ const PageHeader = React.forwardRef(
                         <button
                             type="button"
                             onClick={onBackClick}
-                            className="p-2 -ml-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 border border-transparent hover:border-slate-700/50 transition-all focus:outline-none focus:ring-2 focus:ring-slate-750 cursor-pointer shrink-0"
+                            className="p-2 -ml-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 border border-transparent hover:border-slate-700/50 transition-all focus:outline-none focus:ring-2 focus:ring-orange-500/30 cursor-pointer shrink-0"
                             aria-label="Go back"
                         >
                             <ArrowLeft className="h-5 w-5" />

@@ -57,8 +57,8 @@ const StatCard = ({
                             className={cn(
                                 "inline-flex items-center gap-0.5 text-xs font-semibold px-2 py-0.5 rounded-full border",
                                 isTrendUp
-                                    ? "bg-emerald-500/10 text-emerald-450 border-emerald-500/20"
-                                    : "bg-red-500/10 text-red-450 border-red-500/20"
+                                    ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                                    : "bg-red-500/10 text-red-400 border-red-500/20"
                             )}
                         >
                             {isTrendUp ? (

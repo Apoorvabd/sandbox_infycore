@@ -201,7 +201,7 @@ export default function SandboxPage() {
                 <button
                     onClick={handleFullPipeline}
                     disabled={isAnyRunning}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-500 hover:to-emerald-500 text-white text-sm font-semibold shadow-lg shadow-blue-500/20 transition-all disabled:opacity-50 shrink-0"
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-400 hover:from-orange-400 hover:to-yellow-300 text-white text-sm font-semibold shadow-lg shadow-orange-500/20 transition-all disabled:opacity-50 shrink-0"
                 >
                     {isAnyRunning ? <Spinner size="sm" /> : <Play className="w-4 h-4" />}
                     Run Full Pipeline
@@ -211,7 +211,7 @@ export default function SandboxPage() {
             {/* ── Test Rule ── */}
             <Card className="p-5">
                 <h3 className="font-semibold text-slate-200 mb-4 flex items-center gap-2">
-                    <Terminal className="w-4 h-4 text-blue-400" />
+                    <Terminal className="w-4 h-4 text-orange-400" />
                     Test Merchant Normalization
                 </h3>
                 <div className="flex gap-3 flex-col sm:flex-row">
@@ -225,7 +225,7 @@ export default function SandboxPage() {
                     <button
                         onClick={handleTestRule}
                         disabled={testRunning || !testMerchant.trim()}
-                        className="flex items-center gap-2 px-4 py-2 h-10 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium transition-all disabled:opacity-50 shrink-0"
+                        className="flex items-center gap-2 px-4 py-2 h-10 rounded-lg bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium transition-all disabled:opacity-50 shrink-0"
                     >
                         {testRunning ? <Spinner size="sm" /> : <Play className="w-4 h-4" />}
                         Test
@@ -275,8 +275,8 @@ export default function SandboxPage() {
 
 // ── Pipeline Card ──────────────────────────────────────────────────────────────
 const COLOR_MAP = {
-    blue:  { border: "border-blue-500/20",  icon: "text-blue-400",  btn: "bg-blue-600 hover:bg-blue-500 shadow-blue-500/20" },
-    amber: { border: "border-amber-500/20", icon: "text-amber-400", btn: "bg-amber-600 hover:bg-amber-500 shadow-amber-500/20" },
+    blue:  { border: "border-orange-500/20",  icon: "text-orange-400",  btn: "bg-orange-500 hover:bg-orange-600 shadow-orange-500/20" },
+    amber: { border: "border-yellow-500/20", icon: "text-yellow-400", btn: "bg-yellow-500 hover:bg-yellow-600 shadow-yellow-500/20" },
     red:   { border: "border-red-500/20",   icon: "text-red-400",   btn: "bg-red-600 hover:bg-red-500 shadow-red-500/20" },
 };
 

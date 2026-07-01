@@ -76,7 +76,7 @@ export default function DashboardPage() {
             
             {isLoading && !summary ? (
                 <div className="flex items-center justify-center py-20 min-h-[50vh]">
-                    <Spinner size="lg" className="text-blue-500" />
+                    <Spinner size="lg" className="text-orange-500" />
                 </div>
             ) : error ? (
                 <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400">

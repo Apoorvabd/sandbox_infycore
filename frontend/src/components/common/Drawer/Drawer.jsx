@@ -39,7 +39,7 @@ const Drawer = ({
         right: "right-0 inset-y-0 h-full border-l border-slate-800 animate-slide-in-right",
         left: "left-0 inset-y-0 h-full border-r border-slate-800 animate-slide-in-left",
         top: "top-0 inset-x-0 w-full border-b border-slate-800 animate-slide-in-top",
-        bottom: "bottom-0 inset-x-0 w-full border-t border-slate-805 animate-slide-in-bottom",
+        bottom: "bottom-0 inset-x-0 w-full border-t border-slate-800 animate-slide-in-bottom",
     };
 
     const sizeStyles = {
@@ -108,7 +108,7 @@ const Drawer = ({
                     <button
                         type="button"
                         onClick={onClose}
-                        className="p-1 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-700 cursor-pointer"
+                        className="p-1 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500/30 cursor-pointer"
                         aria-label="Close drawer"
                     >
                         <X className="h-4 w-4" />

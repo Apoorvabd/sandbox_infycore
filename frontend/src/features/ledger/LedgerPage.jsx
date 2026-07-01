@@ -153,7 +153,7 @@ export default function LedgerPage() {
                             placeholder="Search merchant or category…"
                             value={searchDraft}
                             onChange={(e) => setSearchDraft(e.target.value)}
-                            className="w-full h-10 pl-9 pr-3.5 bg-slate-950 text-slate-100 text-sm rounded-lg border border-slate-700/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none placeholder:text-slate-500 transition-all"
+                            className="w-full h-10 pl-9 pr-3.5 bg-slate-950 text-slate-100 text-sm rounded-lg border border-slate-700/80 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none placeholder:text-slate-500 transition-all"
                         />
                     </div>
 
@@ -242,7 +242,7 @@ export default function LedgerPage() {
                                                     className={`w-2 h-2 rounded-full shrink-0 ${
                                                         tx.category === "Uncategorized"
                                                             ? "bg-amber-400"
-                                                            : "bg-blue-400"
+                                                            : "bg-orange-400"
                                                     }`}
                                                 />
                                                 <span className="text-slate-300">{tx.category || "Uncategorized"}</span>

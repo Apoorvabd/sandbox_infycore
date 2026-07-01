@@ -86,7 +86,7 @@ const Modal = ({
                     <button
                         type="button"
                         onClick={onClose}
-                        className="p-1 rounded-lg text-slate-400 hover:text-slate-205 hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-700 cursor-pointer"
+                        className="p-1 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500/30 cursor-pointer"
                         aria-label="Close modal"
                     >
                         <X className="h-4 w-4" />
@@ -94,7 +94,7 @@ const Modal = ({
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 overflow-y-auto p-6 text-sm text-slate-350">
+                <div className="flex-1 overflow-y-auto p-6 text-sm text-slate-300">
                     {children}
                 </div>
             </div>

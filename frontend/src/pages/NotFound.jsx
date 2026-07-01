@@ -14,7 +14,7 @@ function NotFound() {
 
             <Link
                 to="/"
-                className="mt-8 rounded-lg bg-blue-600 px-5 py-2 hover:bg-blue-700"
+                className="mt-8 rounded-lg bg-orange-500 px-5 py-2 hover:bg-orange-600"
             >
                 Go Home
             </Link>

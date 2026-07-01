@@ -66,8 +66,8 @@ const Pagination = ({
             className={cn("flex flex-wrap items-center justify-between gap-4 p-4 border border-slate-800 bg-slate-900 rounded-lg", className)}
         >
             <div className="text-xs text-slate-400">
-                Page <span className="font-semibold text-slate-205">{currentPage}</span> of{" "}
-                <span className="font-semibold text-slate-205">{totalPages}</span>
+                Page <span className="font-semibold text-slate-100">{currentPage}</span> of{" "}
+                <span className="font-semibold text-slate-100">{totalPages}</span>
             </div>
 
             <div className="flex items-center gap-1">

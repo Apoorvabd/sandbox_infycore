@@ -10,9 +10,9 @@ function App() {
                 position="top-right"
                 toastOptions={{
                     style: {
-                        background: '#1e293b', // slate-800
-                        color: '#f8fafc',      // slate-50
-                        border: '1px solid #334155', // slate-700
+                        background: '#0F172A',
+                        color: '#F8FAFC',
+                        border: '1px solid #334155',
                     },
                     success: {
                         iconTheme: {

@@ -32,7 +32,7 @@ const DataTable = ({
                                 key={column.id || column.accessorKey || idx}
                                 className={cn(
                                     column.className,
-                                    "text-slate-200 bg-slate-900 border-b border-slate-800"
+                                    "text-slate-100 bg-slate-900 border-b border-slate-800"
                                 )}
                             >
                                 {column.header}

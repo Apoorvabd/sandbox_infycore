@@ -55,7 +55,7 @@ const Select = React.forwardRef(
                                 ? "opacity-50 cursor-not-allowed bg-slate-900 border-slate-800"
                                 : hasError
                                 ? "border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
-                                : "border-slate-700/80 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20",
+                                : "border-slate-700/80 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20",
                             className
                         )}
                         required={required}

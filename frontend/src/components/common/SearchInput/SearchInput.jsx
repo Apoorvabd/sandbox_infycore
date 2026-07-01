@@ -59,7 +59,7 @@ const SearchInput = React.forwardRef(
                         "pl-10",
                         showClearButton ? "pr-10" : "pr-3.5",
                         disabled && "opacity-50 cursor-not-allowed bg-slate-900 border-slate-800",
-                        "focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20",
+                        "focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20",
                         className
                     )}
                     {...props}
@@ -69,7 +69,7 @@ const SearchInput = React.forwardRef(
                     <button
                         type="button"
                         onClick={handleClear}
-                        className="absolute right-3 p-1 rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors focus:outline-none focus:ring-1 focus:ring-slate-700/80 cursor-pointer"
+                        className="absolute right-3 p-1 rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors focus:outline-none focus:ring-1 focus:ring-orange-500/30 cursor-pointer"
                         aria-label="Clear search input"
                     >
                         <X className="h-3.5 w-3.5" />

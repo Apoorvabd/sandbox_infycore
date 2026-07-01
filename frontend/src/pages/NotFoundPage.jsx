@@ -9,7 +9,7 @@ export default function NotFoundPage() {
             <p className="text-slate-400 mb-8">The page you are looking for does not exist or has been moved.</p>
             <Link 
                 to="/dashboard"
-                className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors shadow-[0_0_15px_rgba(249,115,22,0.3)]"
             >
                 Return to Dashboard
             </Link>

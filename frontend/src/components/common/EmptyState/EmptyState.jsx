@@ -18,11 +18,11 @@ const EmptyState = ({
             )}
             {...props}
         >
-            <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-slate-800/80 text-slate-400 mb-4 border border-slate-700/60 ring-4 ring-slate-800/20">
+            <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-orange-500/10 text-orange-400 mb-4 border border-orange-500/20 ring-4 ring-orange-500/10">
                 <Icon className="h-6 w-6" />
             </div>
 
-            <h3 className="text-base font-semibold text-slate-200 mb-1.5 leading-6">
+            <h3 className="text-base font-semibold text-slate-100 mb-1.5 leading-6">
                 {title}
             </h3>
 

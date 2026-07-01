@@ -15,8 +15,8 @@ const Spinner = ({
     };
 
     const colorClasses = {
-        primary: "border-blue-500/20 border-t-blue-500",
-        accent: "border-sky-500/20 border-t-sky-400",
+        primary: "border-orange-500/20 border-t-orange-500",
+        accent: "border-yellow-500/20 border-t-yellow-400",
         success: "border-emerald-500/20 border-t-emerald-500",
         warning: "border-amber-500/20 border-t-amber-500",
         danger: "border-red-500/20 border-t-red-500",

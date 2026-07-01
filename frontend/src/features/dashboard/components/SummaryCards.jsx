@@ -14,7 +14,7 @@ export default function SummaryCards({ summary }) {
         {
             title: "Total Balance",
             value: `$${Number(totalBalance).toLocaleString(undefined, { minimumFractionDigits: 2 })}`,
-            icon: <Wallet className="w-6 h-6 text-blue-500" />,
+            icon: <Wallet className="w-6 h-6 text-orange-500" />,
             trend: null, // Backend can add this later if computed
         },
         {
@@ -32,7 +32,7 @@ export default function SummaryCards({ summary }) {
         {
             title: "Transactions",
             value: Number(totalTransactions).toLocaleString(),
-            icon: <Activity className="w-6 h-6 text-sky-400" />,
+            icon: <Activity className="w-6 h-6 text-yellow-500" />,
             trend: null,
         },
         {

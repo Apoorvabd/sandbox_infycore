@@ -8,13 +8,13 @@ export const buttonVariants = ({
     const base = clsx(
         "inline-flex items-center justify-center gap-2",
         "rounded-lg font-medium transition-all duration-200",
-        "focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:ring-offset-2 focus:ring-offset-slate-900",
+        "focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:ring-offset-2 focus:ring-offset-slate-900",
         "disabled:opacity-50 disabled:pointer-events-none",
         "active:scale-[0.98] select-none cursor-pointer"
     );
 
     const variants = {
-        primary: "bg-blue-600 text-white hover:bg-blue-500 border border-transparent shadow-[0_1px_2px_rgba(59,130,246,0.2)]",
+        primary: "bg-orange-500 text-white hover:bg-orange-600 border border-transparent shadow-[0_1px_2px_rgba(249,115,22,0.2)]",
         secondary: "bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700 shadow-sm",
         outline: "border border-slate-700 bg-transparent text-slate-200 hover:bg-slate-800",
         danger: "bg-red-600 text-white hover:bg-red-500 border border-transparent shadow-[0_1px_2px_rgba(220,38,38,0.2)]",

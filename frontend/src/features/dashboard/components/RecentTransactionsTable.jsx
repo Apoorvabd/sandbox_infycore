@@ -47,7 +47,7 @@ export default function RecentTransactionsTable({ transactions }) {
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     <div className="flex items-center gap-2">
-                                        <div className={`w-2 h-2 rounded-full ${tx.category === 'Uncategorized' ? 'bg-amber-500' : 'bg-blue-500'}`} />
+                                        <div className={`w-2 h-2 rounded-full ${tx.category === 'Uncategorized' ? 'bg-amber-500' : 'bg-orange-500'}`} />
                                         <span className="text-slate-300">{tx.category || "Uncategorized"}</span>
                                     </div>
                                 </td>
