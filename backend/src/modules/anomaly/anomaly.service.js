@@ -21,18 +21,16 @@ try{
         uncategorized: 0,
         duplicates: 0
     };
-
-
-    // -------------------------
-    // Uncategorized
-    // -------------------------
+console.log("Starting anomaly detection...");
+    let uncategorizedTransactions = [];
     try{
-         const uncategorizedTransactions =
-        await getUncategorizedTransactions();
+        uncategorizedTransactions = await getUncategorizedTransactions();
+        
      }catch (error) {
+        console.log("Error fetching uncategorized transactions:", error);
         throw new ApiError(500, "Failed to fetch uncategorized transactions");
     }
-
+console.log(`Found ${uncategorizedTransactions.length} uncategorized transactions.`);
     for (const transaction of uncategorizedTransactions) {
 
         await markAsAnomaly(transaction.id,"Unknown Merchant");
@@ -96,8 +94,5 @@ export const getAnomalyStats =async () => {
             count: Number(item.count)
         }))
     };
-
-
-
     return data;
 };

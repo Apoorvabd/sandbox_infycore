@@ -13,13 +13,11 @@ import {
 
 const runSync = async () => {
 
-    console.log("TOTAL_SYNC");
+    
 
     // =====================================
     // FETCH DATA
     // =====================================
-
-    console.log("FETCH_DATA");
 
     const [
         institutionsResponse,
@@ -30,11 +28,6 @@ const runSync = async () => {
         axios.get(`${Mock_api}/accounts`),
         axios.get(`${Mock_api}/transactions`)
     ]);
-
-
-
-    console.log("FETCH_DATA");
-
     const institutions = institutionsResponse.data.data;
     const accounts = accountsResponse.data.data;
     const transactions = transactionsResponse.data.data;
@@ -184,19 +177,16 @@ const runSync = async () => {
     // ETL
     // =====================================
 
-    console.time("ETL_PROCESS");
     console.log("Starting ETL process...");
 try{
     const etlResult =
         await processTransactions();
 
-    console.timeEnd("ETL_PROCESS");
 
     // =====================================
     // TOTAL
     // =====================================
 
-    console.timeEnd("TOTAL_SYNC");
 
     return {
         ...stats,
