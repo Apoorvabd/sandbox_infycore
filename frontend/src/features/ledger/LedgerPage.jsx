@@ -197,7 +197,7 @@ export default function LedgerPage() {
             <Card className="overflow-hidden">
                 <div className="overflow-x-auto bg-slate-900">
                     <table className="w-full text-sm text-left">
-                        <thead className="text-lg text-yellow-900 uppercase bg-slate-900/70 border-b border-slate-800">
+                        <thead className="text-lg text-slate-200 uppercase bg-slate-900/70 border-b border-slate-800">
                             <tr>
                                 <th className="px-5 py-4 font-semibold">Date   </th>
                                 <th className="px-5 py-4 font-semibold">Merchant</th>

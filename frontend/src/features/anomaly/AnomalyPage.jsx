@@ -168,7 +168,7 @@ export default function AnomalyPage() {
                                         onClick={() => setExpandedId(isExpanded ? null : (item.id ?? idx))}
                                     >
                                         <div className="p-2 rounded-lg bg-slate-800 border border-slate-700 shrink-0 mt-0.5">
-                                            <Icon className="w-4 h-4 text-slate-900" />
+                                            <Icon className="w-4 h-4 text-slate-200" />
                                         </div>
                                         <div className="flex-1 min-w-0">
                                             <div className="flex items-center gap-3 flex-wrap">
