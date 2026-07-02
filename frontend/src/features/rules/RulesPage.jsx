@@ -236,7 +236,7 @@ export default function RulesPage() {
                                                         setEditingRule(rule);
                                                         setModalOpen(true);
                                                     }}
-                                                    className="p-1.5 rounded-lg text-slate-900
+                                                    className="p-1.5 rounded-lg text-yellow-200
                                                      hover:text-orange-400 hover:bg-orange-500/10 transition-all"
                                                     title="Edit rule"
                                                 >
@@ -244,7 +244,7 @@ export default function RulesPage() {
                                                 </button>
                                                 <button
                                                     onClick={() => handleDelete(rule.id)}
-                                                    className="p-1.5 rounded-lg text-slate-900
+                                                    className="p-1.5 rounded-lg text-red-500
                                                      hover:text-red-400 hover:bg-red-500/10 transition-all"
                                                     title="Delete rule"
                                                 >
