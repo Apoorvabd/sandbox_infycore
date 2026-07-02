@@ -195,7 +195,7 @@ export default function LedgerPage() {
 
             {/* ── Table ── */}
             <Card className="overflow-hidden">
-                <div className="overflow-x-auto bg-slate-600">
+                <div className="overflow-x-auto bg-slate-900">
                     <table className="w-full text-sm text-left">
                         <thead className="text-xs text-yellow-900 uppercase bg-slate-900/70 border-b border-slate-800">
                             <tr>
