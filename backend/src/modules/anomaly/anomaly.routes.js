@@ -45,5 +45,10 @@ router.get(
     getAnomalySummary
 );
 
+router.get(
+    "/categories",
+    getAnomalySummary
+);
+
 
 export default router;

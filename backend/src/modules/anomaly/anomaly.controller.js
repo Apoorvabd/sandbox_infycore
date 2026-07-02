@@ -112,7 +112,7 @@ export const getAnomalySummary =asyncHandler(async (req, res) => {
 
 /**
  * @swagger
- * /anomaly/category-breakdown:
+ * /anomaly/categories:
  *   get:
  *     summary: Get anomaly category breakdown
  *     description: Returns anomaly counts grouped by transaction category.

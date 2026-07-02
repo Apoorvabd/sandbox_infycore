@@ -40,7 +40,7 @@ export const getDashboardSummary = asyncHandler(async (req, res) => {
 });
 /**
  * @swagger
- * /dashboard/category-breakdown:
+ * /dashboard/categories:
  *   get:
  *     summary: Get expense breakdown by category
  *     description: Returns the number of transactions and total amount grouped by category.
