@@ -293,8 +293,8 @@ export default function RulesPage() {
                         Run Test
                     </button>
                     {testResult && (
-                        <div className="rounded-xl border border-slate-700 bg-slate-950 p-4 text-sm space-y-2">
-                            <Row label="Normalized Merchant" value={testResult.normalized_merchant ?? testResult.clean_merchant_name ?? "—"} />
+                        <div className="rounded-xl border border-slate-700 bg-slate-100 p-4 text-sm space-y-2">
+                            <Row label="Normalized Merchant" value={testResult.normalizedMerchant ?? testResult.clean_merchant_name ?? "—"} />
                             <Row label="Category" value={testResult.category ?? testResult.target_category ?? "—"} />
                             <Row label="Matched Rule" value={testResult.matched_rule ?? testResult.keyword ?? "No match"} />
                         </div>
