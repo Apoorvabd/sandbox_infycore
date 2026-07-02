@@ -217,10 +217,10 @@ export default function RulesPage() {
                                         key={rule.id}
                                         className="border-b border-slate-800/40 hover:bg-slate-800/30 transition-colors"
                                     >
-                                        <td className="px-5 py-3.5 font-mono text-blue-300 text-xs">
+                                        <td className="px-5 py-3.5 font-mono text-blue-300 text-sm">
                                             {rule.keyword}
                                         </td>
-                                        <td className="px-5 py-3.5 font-medium text-slate-900
+                                        <td className="px-5 py-3.5 font-medium text-slate-200
                                         ">
                                             {rule.clean_merchant_name || rule.normalized_merchant || "—"}
                                         </td>
