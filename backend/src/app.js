@@ -80,9 +80,7 @@ app.get("/health/db",asyncHandler(async (req, res) => {
 app.use("/api/ingestion", ingestionRoutes);
 app.use("/api/rules", rulesRoutes);
 app.use("/api/dashboard",dashboardRoutes);
-app.use(
-    "/api/anomaly",
-    anomalyRoutes
+app.use("/api/anomaly", anomalyRoutes
 );
 app.use(
     "/api-docs",
