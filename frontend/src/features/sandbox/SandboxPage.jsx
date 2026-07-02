@@ -225,7 +225,7 @@ export default function SandboxPage() {
                     <button
                         onClick={handleTestRule}
                         disabled={testRunning || !testMerchant.trim()}
-                        className="flex items-center gap-2 px-4 py-2 h-10 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-400 hover:bg-orange-600 text-slate-900 text-sm font-medium transition-all disabled:opacity-100 shrink-0"
+                        className="flex items-center gap-2 px-4 py-2 h-10 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-400 hover:bg-orange-600 text-slate-200 text-sm font-medium transition-all disabled:opacity-100 shrink-0"
                     >
                         {testRunning ? <Spinner size="sm" /> : <Play className="w-4 h-4" />}
                         Test
@@ -233,7 +233,7 @@ export default function SandboxPage() {
                 </div>
 
                 {testResult && (
-                    <div className="mt-4 rounded-xl border border-slate-700 bg-slate-950 p-4 text-sm grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="mt-4 rounded-xl border border-slate-700 bg-slate-100 p-4 text-sm grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <ResultCell label="Normalized Merchant" value={testResult.normalized_merchant ?? testResult.clean_merchant_name ?? "—"} />
                         <ResultCell label="Category" value={testResult.category ?? testResult.target_category ?? "—"} />
                         <ResultCell label="Matched Rule" value={testResult.matched_rule ?? testResult.keyword ?? "No match"} />
