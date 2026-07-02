@@ -36,18 +36,18 @@ const StatCard = ({
     return (
         <Card hoverable className={cn("p-6 flex flex-col justify-between gap-4", className)} {...props}>
             <div className="flex items-start justify-between">
-                <span className="text-xs font-semibold text-slate-400 select-none uppercase tracking-wider">
+                <span className="text-xs font-semibold text-sky-500 select-none uppercase tracking-wider">
                     {title}
                 </span>
                 {Icon && (
-                    <div className="p-2 rounded-lg bg-slate-800 border border-slate-700/60 text-slate-300">
+                    <div className="p-2 rounded-lg bg-sky-50 border border-sky-200 text-sky-600">
                         <Wallet className="h-5 w-5 shrink-0" />
                     </div>
                 )}
             </div>
 
             <div className="flex flex-col gap-1 mt-1">
-                <span className="text-2xl font-bold text-slate-100 tracking-tight leading-none">
+                <span className="text-2xl font-bold text-slate-900 tracking-tight leading-none">
                     {value}
                 </span>
 

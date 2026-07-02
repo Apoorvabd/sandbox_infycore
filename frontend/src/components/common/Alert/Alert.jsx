@@ -48,12 +48,12 @@ const Alert = React.forwardRef(
 
                 <div className="flex-1 flex flex-col gap-1">
                     {title && (
-                        <h4 className="font-semibold text-slate-100 leading-tight">
+                        <h4 className="font-semibold text-slate-900 leading-tight">
                             {title}
                         </h4>
                     )}
                     {children && (
-                        <div className="text-xs text-slate-300 leading-relaxed font-normal">
+                        <div className="text-xs text-slate-900 leading-relaxed font-normal">
                             {children}
                         </div>
                     )}

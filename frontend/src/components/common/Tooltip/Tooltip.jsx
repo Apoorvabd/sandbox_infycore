@@ -30,10 +30,10 @@ const Tooltip = ({
     };
 
     const arrows = {
-        top: "top-full left-1/2 -translate-x-1/2 border-t-slate-800 border-x-transparent border-b-transparent",
-        bottom: "bottom-full left-1/2 -translate-x-1/2 border-b-slate-800 border-x-transparent border-t-transparent",
-        left: "left-full top-1/2 -translate-y-1/2 border-l-slate-800 border-y-transparent border-r-transparent",
-        right: "right-full top-1/2 -translate-y-1/2 border-r-slate-800 border-y-transparent border-l-transparent",
+        top: "top-full left-1/2 -translate-x-1/2 border-t-sky-900 border-x-transparent border-b-transparent",
+        bottom: "bottom-full left-1/2 -translate-x-1/2 border-b-sky-900 border-x-transparent border-t-transparent",
+        left: "left-full top-1/2 -translate-y-1/2 border-l-sky-900 border-y-transparent border-r-transparent",
+        right: "right-full top-1/2 -translate-y-1/2 border-r-sky-900 border-y-transparent border-l-transparent",
     };
 
     return (
@@ -50,7 +50,7 @@ const Tooltip = ({
                 <div
                     role="tooltip"
                     className={cn(
-                        "absolute z-50 px-2.5 py-1.5 text-xs font-medium text-slate-100 bg-slate-800 border border-slate-700/80 rounded-md whitespace-nowrap shadow-xl pointer-events-none transition-all duration-200",
+                        "absolute z-50 px-2.5 py-1.5 text-xs font-medium text-white bg-slate-900 border border-slate-800/80 rounded-md whitespace-nowrap shadow-xl pointer-events-none transition-all duration-200",
                         positions[position],
                         className
                     )}

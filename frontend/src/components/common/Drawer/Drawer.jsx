@@ -36,10 +36,10 @@ const Drawer = ({
 
     // Size definitions based on positioning
     const placementStyles = {
-        right: "right-0 inset-y-0 h-full border-l border-slate-800 animate-slide-in-right",
-        left: "left-0 inset-y-0 h-full border-r border-slate-800 animate-slide-in-left",
-        top: "top-0 inset-x-0 w-full border-b border-slate-800 animate-slide-in-top",
-        bottom: "bottom-0 inset-x-0 w-full border-t border-slate-800 animate-slide-in-bottom",
+        right: "right-0 inset-y-0 h-full border-l border-sky-200 animate-slide-in-right",
+        left: "left-0 inset-y-0 h-full border-r border-sky-200 animate-slide-in-left",
+        top: "top-0 inset-x-0 w-full border-b border-sky-200 animate-slide-in-top",
+        bottom: "bottom-0 inset-x-0 w-full border-t border-sky-200 animate-slide-in-bottom",
     };
 
     const sizeStyles = {
@@ -78,29 +78,29 @@ const Drawer = ({
         >
             {/* Backdrop */}
             <div
-                className="fixed inset-0 bg-slate-950/70 backdrop-blur-[3px] transition-opacity duration-300"
+                className="fixed inset-0 bg-sky-950/15 backdrop-blur-[3px] transition-opacity duration-300"
                 onClick={handleOverlayClick}
             />
 
             {/* Sliding Panel */}
             <div
                 className={cn(
-                    "fixed bg-slate-900 shadow-2xl flex flex-col overflow-hidden transition-all duration-300 z-10",
+                    "fixed bg-white shadow-2xl shadow-sky-100 flex flex-col overflow-hidden transition-all duration-300 z-10",
                     placementStyles[position],
                     selectedSize,
                     className
                 )}
             >
                 {/* Header */}
-                <div className="flex items-start justify-between p-5 border-b border-slate-800/80 shrink-0">
+                <div className="flex items-start justify-between p-5 border-b border-sky-200 shrink-0">
                     <div className="flex flex-col gap-0.5">
                         {title && (
-                            <h2 className="text-lg font-semibold text-slate-100 leading-6">
+                            <h2 className="text-lg font-semibold text-slate-900 leading-6">
                                 {title}
                             </h2>
                         )}
                         {description && (
-                            <p className="text-xs text-slate-400">
+                            <p className="text-xs text-slate-500">
                                 {description}
                             </p>
                         )}
@@ -108,7 +108,7 @@ const Drawer = ({
                     <button
                         type="button"
                         onClick={onClose}
-                        className="p-1 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500/30 cursor-pointer"
+                        className="p-1 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-sky-50 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500/30 cursor-pointer"
                         aria-label="Close drawer"
                     >
                         <X className="h-4 w-4" />
@@ -116,7 +116,7 @@ const Drawer = ({
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 overflow-y-auto p-6 text-sm text-slate-300">
+                <div className="flex-1 overflow-y-auto p-6 text-sm text-slate-700">
                     {children}
                 </div>
             </div>

@@ -28,7 +28,7 @@ const Input = React.forwardRef(
                 {label && (
                     <label
                         htmlFor={inputId}
-                        className="text-xs font-semibold text-slate-300 select-none cursor-pointer flex items-center gap-1"
+                        className="text-xs font-semibold text-slate-900 select-none cursor-pointer flex items-center gap-1"
                     >
                         {label}
                         {required && <span className="text-red-500" aria-hidden="true">*</span>}
@@ -37,7 +37,7 @@ const Input = React.forwardRef(
 
                 <div className="relative flex items-center w-full">
                     {leftIcon && (
-                        <div className="absolute left-3 text-slate-400 pointer-events-none select-none flex items-center justify-center">
+                        <div className="absolute left-3 text-slate-900 pointer-events-none select-none flex items-center justify-center">
                             {leftIcon}
                         </div>
                     )}
@@ -56,14 +56,14 @@ const Input = React.forwardRef(
                                 : undefined
                         }
                         className={cn(
-                            "w-full h-10 bg-slate-950 text-slate-100 text-sm rounded-lg border transition-all duration-200 focus:outline-none placeholder:text-slate-500",
+                            "w-full h-10 bg-white text-slate-900 text-sm rounded-lg border transition-all duration-200 focus:outline-none placeholder:text-slate-900",
                             leftIcon ? "pl-10" : "pl-3.5",
                             rightIcon ? "pr-10" : "pr-3.5",
                             disabled
-                                ? "opacity-50 cursor-not-allowed bg-slate-900 border-slate-800"
+                                ? "opacity-50 cursor-not-allowed bg-sky-50 border-sky-200"
                                 : hasError
                                 ? "border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
-                                : "border-slate-700/80 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20",
+                                : "border-sky-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200",
                             className
                         )}
                         required={required}
@@ -71,7 +71,7 @@ const Input = React.forwardRef(
                     />
 
                     {rightIcon && (
-                        <div className="absolute right-3 text-slate-400 pointer-events-none select-none flex items-center justify-center">
+                        <div className="absolute right-3 text-slate-900 pointer-events-none select-none flex items-center justify-center">
                             {rightIcon}
                         </div>
                     )}
@@ -87,7 +87,7 @@ const Input = React.forwardRef(
                 )}
 
                 {!hasError && helperText && (
-                    <p id={`${inputId}-helper`} className="text-xs text-slate-500 mt-0.5">
+                    <p id={`${inputId}-helper`} className="text-xs text-slate-900 mt-0.5">
                         {helperText}
                     </p>
                 )}

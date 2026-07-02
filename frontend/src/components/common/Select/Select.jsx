@@ -29,7 +29,7 @@ const Select = React.forwardRef(
                 {label && (
                     <label
                         htmlFor={selectId}
-                        className="text-xs font-semibold text-slate-300 select-none cursor-pointer flex items-center gap-1"
+                        className="text-xs font-semibold text-slate-700 select-none cursor-pointer flex items-center gap-1"
                     >
                         {label}
                         {required && <span className="text-red-500" aria-hidden="true">*</span>}
@@ -50,19 +50,19 @@ const Select = React.forwardRef(
                                 : undefined
                         }
                         className={cn(
-                            "w-full h-10 bg-slate-950 text-slate-100 text-sm rounded-lg border appearance-none transition-all duration-200 focus:outline-none pr-10 pl-3.5 cursor-pointer",
+                            "w-full h-10 bg-white text-slate-900 text-sm rounded-lg border appearance-none transition-all duration-200 focus:outline-none pr-10 pl-3.5 cursor-pointer",
                             disabled
-                                ? "opacity-50 cursor-not-allowed bg-slate-900 border-slate-800"
+                                ? "opacity-50 cursor-not-allowed bg-sky-50 border-sky-200"
                                 : hasError
                                 ? "border-red-500/50 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
-                                : "border-slate-700/80 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20",
+                                : "border-sky-200 focus:border-sky-400 focus:ring-2 focus:ring-sky-200",
                             className
                         )}
                         required={required}
                         {...props}
                     >
                         {placeholder && (
-                            <option value="" disabled className="bg-slate-900 text-slate-500">
+                            <option value="" disabled className="bg-white text-slate-500">
                                 {placeholder}
                             </option>
                         )}
@@ -72,14 +72,14 @@ const Select = React.forwardRef(
                                   <option
                                       key={opt.value}
                                       value={opt.value}
-                                      className="bg-slate-900 text-slate-100"
+                                      className="bg-white text-slate-900"
                                   >
                                       {opt.label}
                                   </option>
                               ))}
                     </select>
 
-                    <div className="absolute right-3 text-slate-400 pointer-events-none select-none flex items-center justify-center">
+                    <div className="absolute right-3 text-slate-500 pointer-events-none select-none flex items-center justify-center">
                         <ChevronDown className="h-4 w-4" />
                     </div>
                 </div>

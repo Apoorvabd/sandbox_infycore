@@ -18,13 +18,13 @@ function ts() {
 
 function LogEntry({ entry }) {
     const icons = {
-        info:    <Info className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />,
+        info:    <Info className="w-3.5 h-3.5 text-blue-900 shrink-0 mt-0.5" />,
         success: <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />,
         error:   <XCircle className="w-3.5 h-3.5 text-red-400 shrink-0 mt-0.5" />,
         running: <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5 animate-spin" />,
     };
     const colors = {
-        info:    "text-blue-300",
+        info:    "text-blue-900",
         success: "text-emerald-300",
         error:   "text-red-300",
         running: "text-amber-300",
@@ -193,8 +193,8 @@ export default function SandboxPage() {
             {/* ── Run Full Pipeline ── */}
             <Card className="p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                    <h3 className="font-semibold text-slate-200">Full Pipeline</h3>
-                    <p className="text-sm text-slate-400 mt-0.5">
+                    <h3 className="font-semibold text-orange-800">Full Pipeline</h3>
+                    <p className="text-sm text-slate-900 mt-0.5">
                         Run all three steps sequentially: Sync → Normalize → Detect
                     </p>
                 </div>
@@ -210,8 +210,8 @@ export default function SandboxPage() {
 
             {/* ── Test Rule ── */}
             <Card className="p-5">
-                <h3 className="font-semibold text-slate-200 mb-4 flex items-center gap-2">
-                    <Terminal className="w-4 h-4 text-orange-400" />
+                <h3 className="font-semibold text-yellow-900 mb-4 flex items-center gap-2">
+                    <Terminal className="w-4 h-4 text-orange-900" />
                     Test Merchant Normalization
                 </h3>
                 <div className="flex gap-3 flex-col sm:flex-row">
@@ -225,7 +225,7 @@ export default function SandboxPage() {
                     <button
                         onClick={handleTestRule}
                         disabled={testRunning || !testMerchant.trim()}
-                        className="flex items-center gap-2 px-4 py-2 h-10 rounded-lg bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium transition-all disabled:opacity-50 shrink-0"
+                        className="flex items-center gap-2 px-4 py-2 h-10 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-400 hover:bg-orange-600 text-slate-900 text-sm font-medium transition-all disabled:opacity-100 shrink-0"
                     >
                         {testRunning ? <Spinner size="sm" /> : <Play className="w-4 h-4" />}
                         Test
@@ -285,14 +285,14 @@ function PipelineCard({ step, title, description, icon, color, running, disabled
     return (
         <Card className={`p-5 flex flex-col gap-4 border ${c.border}`}>
             <div className="flex items-start justify-between">
-                <div className={`p-2 rounded-lg bg-slate-800 border border-slate-700 ${c.icon}`}>{icon}</div>
-                <span className="text-xs font-bold text-slate-500 bg-slate-800 border border-slate-700 px-2 py-0.5 rounded-full">
+                <div className={`p-2 rounded-lg bg-slate-900 border border-slate-700 ${c.icon}`}>{icon}</div>
+                <span className="text-xs font-bold text-slate-900 bg-slate-200 border border-slate-700 px-2 py-0.5 rounded-full">
                     Step {step}
                 </span>
             </div>
             <div>
-                <h4 className="font-semibold text-slate-200 text-sm">{title}</h4>
-                <p className="text-xs text-slate-400 mt-1 leading-relaxed">{description}</p>
+                <h4 className="font-semibold text-yellow-900 text-lg">{title}</h4>
+                <p className="text-xs text-slate-900 mt-1 leading-relaxed">{description}</p>
             </div>
             <button
                 onClick={onRun}
@@ -309,8 +309,8 @@ function PipelineCard({ step, title, description, icon, color, running, disabled
 function ResultCell({ label, value }) {
     return (
         <div className="flex flex-col gap-1">
-            <span className="text-xs text-slate-500 uppercase tracking-wider">{label}</span>
-            <span className="text-slate-100 font-semibold">{value}</span>
+            <span className="text-xs text-slate-900 uppercase tracking-wider">{label}</span>
+            <span className="text-slate-900 font-semibold">{value}</span>
         </div>
     );
 }

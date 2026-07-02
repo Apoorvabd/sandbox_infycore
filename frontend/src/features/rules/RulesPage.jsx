@@ -124,7 +124,8 @@ export default function RulesPage() {
                     <div className="flex items-center gap-2 flex-wrap">
                         <button
                             onClick={() => { setTestOpen(true); setTestResult(null); }}
-                            className="flex items-center gap-2 text-sm px-3.5 py-2 rounded-lg border border-slate-700 text-slate-300 hover:text-white hover:border-slate-600 hover:bg-slate-800 transition-all"
+                            className="flex items-center gap-2 text-sm px-3.5 py-2 rounded-lg border border-slate-700 text-slate-900
+                             hover:text-white hover:border-slate-600 hover:bg-slate-800 transition-all"
                         >
                             <FlaskConical className="w-4 h-4" />
                             Test Rule
@@ -151,18 +152,24 @@ export default function RulesPage() {
             {/* ── Stats bar ── */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <Card className="p-4">
-                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Rules</p>
-                    <p className="text-2xl font-bold text-slate-100 mt-1">{rules.length}</p>
+                    <p className="text-xs font-semibold text-slate-900
+                     uppercase tracking-wider">Total Rules</p>
+                    <p className="text-2xl font-bold text-slate-900
+                     mt-1">{rules.length}</p>
                 </Card>
                 <Card className="p-4">
-                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Keyword Patterns</p>
-                    <p className="text-2xl font-bold text-slate-100 mt-1">
+                    <p className="text-xs font-semibold text-slate-900
+                     uppercase tracking-wider">Keyword Patterns</p>
+                    <p className="text-2xl font-bold text-slate-900
+                     mt-1">
                         {[...new Set(rules.map((r) => r.keyword?.toLowerCase()))].length}
                     </p>
                 </Card>
                 <Card className="p-4">
-                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Categories Covered</p>
-                    <p className="text-2xl font-bold text-slate-100 mt-1">
+                    <p className="text-xs font-semibold text-slate-900
+                     uppercase tracking-wider">Categories Covered</p>
+                    <p className="text-2xl font-bold text-slate-900
+                     mt-1">
                         {[...new Set(rules.map((r) => r.target_category).filter(Boolean))].length}
                     </p>
                 </Card>
@@ -172,11 +179,13 @@ export default function RulesPage() {
             <Card className="overflow-hidden">
                 <div className="p-5 border-b border-slate-800 flex items-center gap-2">
                     <Zap className="w-4 h-4 text-orange-400" />
-                    <h2 className="font-semibold text-slate-200">Active Rules</h2>
+                    <h2 className="font-semibold text-slate-900
+                    ">Active Rules</h2>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="w-full text-sm text-left">
-                        <thead className="text-xs text-slate-400 uppercase bg-slate-900/70 border-b border-slate-800">
+                        <thead className="text-xs text-slate-900
+                         uppercase bg-slate-200/70 border-b border-slate-800">
                             <tr>
                                 <th className="px-5 py-4 font-semibold">Keyword</th>
                                 <th className="px-5 py-4 font-semibold">Clean Merchant</th>
@@ -197,7 +206,8 @@ export default function RulesPage() {
                                 ))
                             ) : rules.length === 0 ? (
                                 <tr>
-                                    <td colSpan={4} className="py-16 text-center text-slate-500">
+                                    <td colSpan={4} className="py-16 text-center text-slate-900
+                                    ">
                                         No rules defined yet. Create your first rule.
                                     </td>
                                 </tr>
@@ -210,7 +220,8 @@ export default function RulesPage() {
                                         <td className="px-5 py-3.5 font-mono text-blue-300 text-xs">
                                             {rule.keyword}
                                         </td>
-                                        <td className="px-5 py-3.5 font-medium text-slate-200">
+                                        <td className="px-5 py-3.5 font-medium text-slate-900
+                                        ">
                                             {rule.clean_merchant_name || rule.normalized_merchant || "—"}
                                         </td>
                                         <td className="px-5 py-3.5">
@@ -225,14 +236,16 @@ export default function RulesPage() {
                                                         setEditingRule(rule);
                                                         setModalOpen(true);
                                                     }}
-                                                    className="p-1.5 rounded-lg text-slate-400 hover:text-orange-400 hover:bg-orange-500/10 transition-all"
+                                                    className="p-1.5 rounded-lg text-slate-900
+                                                     hover:text-orange-400 hover:bg-orange-500/10 transition-all"
                                                     title="Edit rule"
                                                 >
                                                     <Pencil className="w-4 h-4" />
                                                 </button>
                                                 <button
                                                     onClick={() => handleDelete(rule.id)}
-                                                    className="p-1.5 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-all"
+                                                    className="p-1.5 rounded-lg text-slate-900
+                                                     hover:text-red-400 hover:bg-red-500/10 transition-all"
                                                     title="Delete rule"
                                                 >
                                                     <Trash2 className="w-4 h-4" />
@@ -296,8 +309,10 @@ export default function RulesPage() {
 function Row({ label, value }) {
     return (
         <div className="flex justify-between gap-4">
-            <span className="text-slate-400">{label}</span>
-            <span className="text-slate-100 font-medium text-right">{value}</span>
+            <span className="text-slate-900
+            ">{label}</span>
+            <span className="text-slate-900
+             font-medium text-right">{value}</span>
         </div>
     );
 }
@@ -379,7 +394,8 @@ function RuleModal({ isOpen, onClose, onSave, rule }) {
                     <button
                         type="button"
                         onClick={onClose}
-                        className="flex-1 h-10 px-4 rounded-lg border border-slate-700 text-slate-300 hover:text-white hover:border-slate-600 text-sm transition-all"
+                        className="flex-1 h-10 px-4 rounded-lg border border-slate-700 text-slate-900
+                         hover:text-white hover:border-slate-600 text-sm transition-all"
                     >
                         Cancel
                     </button>

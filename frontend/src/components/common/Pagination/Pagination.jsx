@@ -63,11 +63,11 @@ const Pagination = ({
         <nav
             role="navigation"
             aria-label="Pagination"
-            className={cn("flex flex-wrap items-center justify-between gap-4 p-4 border border-slate-800 bg-slate-900 rounded-lg", className)}
+            className={cn("flex flex-wrap items-center justify-between gap-4 p-4 border border-sky-200 bg-white rounded-lg shadow-sm shadow-sky-50", className)}
         >
-            <div className="text-xs text-slate-400">
-                Page <span className="font-semibold text-slate-100">{currentPage}</span> of{" "}
-                <span className="font-semibold text-slate-100">{totalPages}</span>
+            <div className="text-xs text-slate-500">
+                Page <span className="font-semibold text-slate-900">{currentPage}</span> of{" "}
+                <span className="font-semibold text-slate-900">{totalPages}</span>
             </div>
 
             <div className="flex items-center gap-1">
@@ -120,7 +120,7 @@ const Pagination = ({
                             aria-current={isCurrent ? "page" : undefined}
                             className={cn(
                                 "h-8 w-8 p-0 text-xs font-semibold",
-                                !isCurrent && "border-slate-800 hover:border-slate-700/80 hover:bg-slate-800 text-slate-300"
+                                !isCurrent && "border-sky-200 hover:border-sky-300 hover:bg-sky-50 text-slate-700"
                             )}
                         >
                             {pageNumber}

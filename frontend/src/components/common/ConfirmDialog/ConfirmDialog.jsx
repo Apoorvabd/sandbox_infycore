@@ -50,10 +50,10 @@ const ConfirmDialog = ({
                 </div>
 
                 <div className="flex flex-col gap-1.5 w-full">
-                    <h3 className="text-lg font-semibold text-slate-100 leading-tight">
+                    <h3 className="text-lg font-semibold text-slate-900 leading-tight">
                         {title}
                     </h3>
-                    <p className="text-sm text-slate-400 font-normal leading-normal px-2">
+                    <p className="text-sm text-slate-900 font-normal leading-normal px-2">
                         {message}
                     </p>
                 </div>
@@ -64,7 +64,7 @@ const ConfirmDialog = ({
                         fullWidth
                         onClick={onClose}
                         disabled={isLoading}
-                        className="border-slate-800 hover:bg-slate-800 text-slate-300"
+                        className="border-sky-200 hover:bg-sky-50 text-slate-900"
                     >
                         {cancelText}
                     </Button>

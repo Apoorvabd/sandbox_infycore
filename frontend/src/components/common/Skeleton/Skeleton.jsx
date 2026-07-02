@@ -9,11 +9,11 @@ const Skeleton = ({
     className = "",
     ...props
 }) => {
-    const baseClass = "bg-slate-800 rounded";
+    const baseClass = "bg-sky-100 rounded";
 
     const animations = {
         pulse: "animate-pulse",
-        wave: "relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-slate-700/30 before:to-transparent",
+        wave: "relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-sky-200/40 before:to-transparent",
         none: "",
     };
 

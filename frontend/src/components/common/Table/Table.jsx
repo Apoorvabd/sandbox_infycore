@@ -2,10 +2,10 @@ import React from "react";
 import { cn } from "../../../utils/cn";
 
 const Table = React.forwardRef(({ className, ...props }, ref) => (
-    <div className="w-full overflow-x-auto rounded-lg border border-slate-800 bg-slate-900/50">
+    <div className="w-full overflow-x-auto rounded-lg border border-sky-200 bg-white/90 shadow-sm shadow-sky-50">
         <table
             ref={ref}
-            className={cn("w-full caption-bottom text-sm text-slate-300 border-collapse", className)}
+            className={cn("w-full caption-bottom text-sm text-slate-700 border-collapse", className)}
             {...props}
         />
     </div>
@@ -13,7 +13,7 @@ const Table = React.forwardRef(({ className, ...props }, ref) => (
 Table.displayName = "Table";
 
 const TableHeader = React.forwardRef(({ className, ...props }, ref) => (
-    <thead ref={ref} className={cn("bg-slate-900 border-b border-slate-800 sticky top-0 z-10", className)} {...props} />
+    <thead ref={ref} className={cn("bg-sky-50 border-b border-sky-200 sticky top-0 z-10", className)} {...props} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -25,7 +25,7 @@ TableBody.displayName = "TableBody";
 const TableFooter = React.forwardRef(({ className, ...props }, ref) => (
     <tfoot
         ref={ref}
-        className={cn("bg-slate-900/80 border-t border-slate-800 font-medium text-slate-100", className)}
+        className={cn("bg-sky-50 border-t border-sky-200 font-medium text-slate-900", className)}
         {...props}
     />
 ));
@@ -35,9 +35,9 @@ const TableRow = React.forwardRef(({ className, striped = false, hoverable = tru
     <tr
         ref={ref}
         className={cn(
-            "border-b border-slate-800/60 transition-colors",
-            hoverable && "hover:bg-slate-800/40",
-            striped && "even:bg-slate-950/20 odd:bg-transparent",
+            "border-b border-sky-200/80 transition-colors",
+            hoverable && "hover:bg-sky-50",
+            striped && "even:bg-sky-50/50 odd:bg-transparent",
             className
         )}
         {...props}
@@ -49,7 +49,7 @@ const TableHead = React.forwardRef(({ className, ...props }, ref) => (
     <th
         ref={ref}
         className={cn(
-            "h-12 px-4 text-left align-middle font-semibold text-slate-100 select-none",
+            "h-12 px-4 text-left align-middle font-semibold text-slate-900 select-none",
             className
         )}
         {...props}
@@ -60,7 +60,7 @@ TableHead.displayName = "TableHead";
 const TableCell = React.forwardRef(({ className, ...props }, ref) => (
     <td
         ref={ref}
-        className={cn("p-4 align-middle text-slate-300 leading-normal", className)}
+        className={cn("p-4 align-middle text-slate-700 leading-normal", className)}
         {...props}
     />
 ));

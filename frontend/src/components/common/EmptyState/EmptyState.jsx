@@ -13,21 +13,21 @@ const EmptyState = ({
     return (
         <div
             className={cn(
-                "flex flex-col items-center justify-center text-center p-8 border border-dashed border-slate-800 rounded-xl bg-slate-900/50 min-h-[300px]",
+                "flex flex-col items-center justify-center text-center p-8 border border-dashed border-sky-200 rounded-xl bg-white/80 min-h-[300px]",
                 className
             )}
             {...props}
         >
-            <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-orange-500/10 text-orange-400 mb-4 border border-orange-500/20 ring-4 ring-orange-500/10">
+            <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-sky-500/10 text-sky-600 mb-4 border border-sky-200 ring-4 ring-sky-100">
                 <Icon className="h-6 w-6" />
             </div>
 
-            <h3 className="text-base font-semibold text-slate-100 mb-1.5 leading-6">
+            <h3 className="text-base font-semibold text-slate-900 mb-1.5 leading-6">
                 {title}
             </h3>
 
             {description && (
-                <p className="text-sm text-slate-400 max-w-md mb-6 leading-5">
+                <p className="text-sm text-slate-900 max-w-md mb-6 leading-5">
                     {description}
                 </p>
             )}

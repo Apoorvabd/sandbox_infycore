@@ -25,7 +25,7 @@ export default function Sidebar() {
             {/* Mobile overlay */}
             {sidebarOpen && (
                 <div
-                    className="fixed inset-0 z-40 bg-slate-900/80 backdrop-blur-sm lg:hidden animate-slide-in-right"
+                    className="fixed inset-0 z-40 bg-sky-950/20 backdrop-blur-sm lg:hidden animate-slide-in-right"
                     onClick={() => dispatch(setSidebarOpen(false))}
                 />
             )}
@@ -33,18 +33,18 @@ export default function Sidebar() {
             <aside
                 className={twMerge(
                     clsx(
-                        "fixed inset-y-0 left-0 z-50 w-72 bg-slate-900 border-r border-slate-800 transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col",
+                        "fixed inset-y-0 left-0 z-50 w-72 bg-white/85 border-r border-sky-200/80 shadow-[0_10px_40px_rgba(125,211,252,0.18)] backdrop-blur-xl transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 flex flex-col",
                         !sidebarOpen && "-translate-x-full"
                     )
                 )}
             >
-                <div className="flex items-center justify-between h-16 px-6 border-b border-slate-800">
-                    <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-400">
+                <div className="flex items-center justify-between h-16 px-6 border-b border-sky-200/80">
+                    <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-cyan-500">
                         Sandbox Intelligence
                     </span>
                     <button
                         type="button"
-                        className="lg:hidden text-slate-400 hover:text-white"
+                        className="lg:hidden text-sky-500 hover:text-sky-700"
                         onClick={() => dispatch(setSidebarOpen(false))}
                     >
                         <span className="sr-only">Close sidebar</span>
@@ -63,13 +63,13 @@ export default function Sidebar() {
                                     clsx(
                                         "flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors rounded-xl",
                                         isActive
-                                            ? "bg-orange-500/10 text-orange-500 border border-orange-500/20"
-                                            : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+                                            ? "bg-sky-500/10 text-sky-700 border border-sky-300"
+                                            : "text-slate-500 hover:text-sky-700 hover:bg-sky-50"
                                     )
                                 )}
                             >
                                 <item.icon
-                                    className={twMerge(clsx("w-5 h-5", isActive ? "text-orange-500" : "text-slate-500"))}
+                                    className={twMerge(clsx("w-5 h-5", isActive ? "text-sky-600" : "text-slate-500"))}
                                     aria-hidden="true"
                                 />
                                 {item.name}

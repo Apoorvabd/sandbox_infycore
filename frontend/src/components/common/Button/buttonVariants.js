@@ -8,18 +8,18 @@ export const buttonVariants = ({
     const base = clsx(
         "inline-flex items-center justify-center gap-2",
         "rounded-lg font-medium transition-all duration-200",
-        "focus:outline-none focus:ring-2 focus:ring-orange-500/40 focus:ring-offset-2 focus:ring-offset-slate-900",
+        "focus:outline-none focus:ring-2 focus:ring-sky-500/30 focus:ring-offset-2 focus:ring-offset-sky-50",
         "disabled:opacity-50 disabled:pointer-events-none",
         "active:scale-[0.98] select-none cursor-pointer"
     );
 
     const variants = {
-        primary: "bg-orange-500 text-white hover:bg-orange-600 border border-transparent shadow-[0_1px_2px_rgba(249,115,22,0.2)]",
-        secondary: "bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700 shadow-sm",
-        outline: "border border-slate-700 bg-transparent text-slate-200 hover:bg-slate-800",
+        primary: "bg-sky-500 text-white hover:bg-sky-600 border border-transparent shadow-[0_1px_2px_rgba(14,165,233,0.2)]",
+        secondary: "bg-sky-50 text-slate-800 hover:bg-sky-100 border border-sky-200 shadow-sm",
+        outline: "border border-sky-200 bg-transparent text-slate-700 hover:bg-sky-50",
         danger: "bg-red-600 text-white hover:bg-red-500 border border-transparent shadow-[0_1px_2px_rgba(220,38,38,0.2)]",
         success: "bg-emerald-600 text-white hover:bg-emerald-500 border border-transparent shadow-[0_1px_2px_rgba(16,185,129,0.2)]",
-        ghost: "bg-transparent text-slate-300 hover:bg-slate-800 hover:text-slate-100",
+        ghost: "bg-transparent text-slate-600 hover:bg-sky-50 hover:text-slate-900",
     };
 
     const sizes = {

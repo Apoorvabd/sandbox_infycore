@@ -100,7 +100,7 @@ export default function AnomalyPage() {
             {/* ── Stats Cards ── */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <Card className="p-4">
-                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Anomalies</p>
+                    <p className="text-xs font-semibold text-slate-900 uppercase tracking-wider">Total Anomalies</p>
                     <p className="text-3xl font-bold text-red-400 mt-1">{total}</p>
                 </Card>
                 {breakdown.slice(0, 2).map((b) => {
@@ -109,11 +109,11 @@ export default function AnomalyPage() {
                     return (
                         <Card key={b.reason} className="p-4 flex items-center gap-4">
                             <div className="p-2 rounded-lg bg-slate-800 border border-slate-700">
-                                <Icon className="w-5 h-5 text-slate-300" />
+                                <Icon className="w-5 h-5 text-slate-900" />
                             </div>
                             <div>
-                                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{b.reason}</p>
-                                <p className="text-2xl font-bold text-slate-100 mt-0.5">{b.count}</p>
+                                <p className="text-xs font-semibold text-slate-900 uppercase tracking-wider">{b.reason}</p>
+                                <p className="text-2xl font-bold text-slate-900 mt-0.5">{b.count}</p>
                             </div>
                         </Card>
                     );
@@ -125,7 +125,7 @@ export default function AnomalyPage() {
                 <div className="p-5 border-b border-slate-800 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                         <ShieldAlert className="w-4 h-4 text-red-400" />
-                        <h2 className="font-semibold text-slate-200">Audit Feed</h2>
+                        <h2 className="font-semibold text-slate-900">Audit Feed</h2>
                         {auditFeed.length > 0 && (
                             <Badge variant="danger" dot>{auditFeed.length}</Badge>
                         )}
@@ -133,7 +133,7 @@ export default function AnomalyPage() {
                     <button
                         onClick={fetchData}
                         disabled={isLoading}
-                        className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-slate-200 border border-slate-700 hover:border-slate-600 px-2.5 py-1.5 rounded-lg transition-all"
+                        className="flex items-center gap-1.5 text-xs text-slate-900 hover:text-slate-900 border border-slate-700 hover:border-slate-600 px-2.5 py-1.5 rounded-lg transition-all"
                     >
                         <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`} />
                         Refresh
@@ -152,7 +152,7 @@ export default function AnomalyPage() {
                             </div>
                         ))
                     ) : auditFeed.length === 0 ? (
-                        <div className="py-16 text-center text-slate-500">
+                        <div className="py-16 text-center text-slate-900">
                             <ScanSearch className="w-10 h-10 mx-auto mb-3 opacity-30" />
                             <p>No anomalies detected. Run the detection engine to scan transactions.</p>
                         </div>
@@ -168,11 +168,11 @@ export default function AnomalyPage() {
                                         onClick={() => setExpandedId(isExpanded ? null : (item.id ?? idx))}
                                     >
                                         <div className="p-2 rounded-lg bg-slate-800 border border-slate-700 shrink-0 mt-0.5">
-                                            <Icon className="w-4 h-4 text-slate-300" />
+                                            <Icon className="w-4 h-4 text-slate-900" />
                                         </div>
                                         <div className="flex-1 min-w-0">
                                             <div className="flex items-center gap-3 flex-wrap">
-                                                <span className="font-semibold text-slate-200 text-sm">
+                                                <span className="font-semibold text-slate-900 text-sm">
                                                     {item.normalized_merchant || item.raw_merchant || "Unknown Merchant"}
                                                 </span>
                                                 <Badge variant={meta.variant} size="sm">
@@ -182,17 +182,17 @@ export default function AnomalyPage() {
                                                     className={`ml-auto text-sm font-semibold ${
                                                         item.direction?.toLowerCase() === "credit"
                                                             ? "text-emerald-400"
-                                                            : "text-slate-200"
+                                                            : "text-slate-900"
                                                     }`}
                                                 >
                                                     {fmt(item.amount)}
                                                 </span>
                                             </div>
-                                            <p className="text-xs text-slate-500 mt-1">
+                                            <p className="text-xs text-slate-900 mt-1">
                                                 {fmtDate(item.cleared_date)} · {item.category || "Uncategorized"}
                                             </p>
                                         </div>
-                                        <div className="shrink-0 text-slate-500">
+                                        <div className="shrink-0 text-slate-900">
                                             {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                                         </div>
                                     </button>
@@ -200,7 +200,7 @@ export default function AnomalyPage() {
                                     {/* Expanded row detail */}
                                     {isExpanded && (
                                         <div className="px-5 pb-4 ml-12 bg-slate-950/30">
-                                            <div className="rounded-xl border border-slate-800 bg-slate-900 p-4 text-xs text-slate-400 space-y-1.5">
+                                            <div className="rounded-xl border border-slate-800 bg-slate-900 p-4 text-xs text-slate-900 space-y-1.5">
                                                 <DetailRow label="Raw Merchant" value={item.raw_merchant || "—"} />
                                                 <DetailRow label="Normalized" value={item.normalized_merchant || "—"} />
                                                 <DetailRow label="Category" value={item.category || "—"} />
@@ -224,7 +224,7 @@ export default function AnomalyPage() {
 function DetailRow({ label, value }) {
     return (
         <div className="flex justify-between gap-4">
-            <span className="text-slate-500">{label}</span>
+            <span className="text-slate-900">{label}</span>
             <span className="text-slate-200 font-medium text-right">{value}</span>
         </div>
     );

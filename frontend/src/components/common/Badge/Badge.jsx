@@ -17,8 +17,8 @@ const Badge = React.forwardRef(
 
         const variants = {
             primary: "bg-orange-500/10 text-orange-500 border border-orange-500/20",
-            secondary: "bg-slate-800 text-slate-300 border border-slate-700",
-            outline: "border border-slate-700 text-slate-400 bg-transparent",
+            secondary: "bg-sky-50 text-slate-900 border border-sky-200",
+            outline: "border border-sky-200 text-slate-900 bg-transparent",
             success: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
             warning: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
             danger: "bg-red-500/10 text-red-400 border border-red-500/20",
@@ -32,8 +32,8 @@ const Badge = React.forwardRef(
 
         const dotColors = {
             primary: "bg-orange-400",
-            secondary: "bg-slate-400",
-            outline: "bg-slate-400",
+            secondary: "bg-slate-500",
+            outline: "bg-slate-500",
             success: "bg-emerald-400",
             warning: "bg-amber-400",
             danger: "bg-red-400",
