@@ -154,13 +154,13 @@ export default function RulesPage() {
                 <Card className="p-4">
                     <p className="text-xs font-semibold text-slate-900
                      uppercase tracking-wider">Total Rules</p>
-                    <p className="text-2xl font-bold text-slate-900
+                    <p className="text-2xl font-bold text-yellow-600
                      mt-1">{rules.length}</p>
                 </Card>
                 <Card className="p-4">
                     <p className="text-xs font-semibold text-slate-900
                      uppercase tracking-wider">Keyword Patterns</p>
-                    <p className="text-2xl font-bold text-slate-900
+                    <p className="text-2xl font-bold text-yellow-600
                      mt-1">
                         {[...new Set(rules.map((r) => r.keyword?.toLowerCase()))].length}
                     </p>
@@ -168,7 +168,7 @@ export default function RulesPage() {
                 <Card className="p-4">
                     <p className="text-xs font-semibold text-slate-900
                      uppercase tracking-wider">Categories Covered</p>
-                    <p className="text-2xl font-bold text-slate-900
+                    <p className="text-2xl font-bold text-yellow-600
                      mt-1">
                         {[...new Set(rules.map((r) => r.target_category).filter(Boolean))].length}
                     </p>
@@ -176,18 +176,18 @@ export default function RulesPage() {
             </div>
 
             {/* ── Rules Table ── */}
-            <Card className="overflow-hidden">
-                <div className="p-5 border-b border-slate-800 flex items-center gap-2">
+            <Card className="overflow-hidden bg-slate-900">
+                <div className="p-5 border-b border-slate-800 flex items-center gap-2 ">
                     <Zap className="w-4 h-4 text-orange-400" />
-                    <h2 className="font-semibold text-slate-900
-                    ">Active Rules</h2>
+                    <h1 className="font-bold text-yellow-900
+                    ">Active Rules</h1>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="w-full text-sm text-left">
-                        <thead className="text-xs text-slate-900
-                         uppercase bg-slate-200/70 border-b border-slate-800">
+                        <thead className="text-lg text-slate-900
+                         uppercase bg-slate-100/70 border-b border-slate-800">
                             <tr>
-                                <th className="px-5 py-4 font-semibold">Keyword</th>
+                                <th className="px-3 py-4 font-semibold">Keyword</th>
                                 <th className="px-5 py-4 font-semibold">Clean Merchant</th>
                                 <th className="px-5 py-4 font-semibold">Category</th>
                                 <th className="px-5 py-4 font-semibold text-right">Actions</th>

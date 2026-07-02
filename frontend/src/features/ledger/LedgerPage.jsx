@@ -135,7 +135,7 @@ export default function LedgerPage() {
                         
                     ].map(({ label, value }) => (
                         <Card key={label} className="p-4">
-                            <p className="text-xs font-semibold text-slate-900 uppercase tracking-wider">{label}</p>
+                            <p className="text-lg font-semibold text-slate-900 uppercase tracking-wider">{label}</p>
                             <p className="text-lg font-bold text-yellow-600 mt-1">{value}</p>
                         </Card>
                     ))}
