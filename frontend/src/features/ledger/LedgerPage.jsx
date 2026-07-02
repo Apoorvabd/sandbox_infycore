@@ -153,7 +153,7 @@ export default function LedgerPage() {
                             placeholder="Search merchant or category…"
                             value={searchDraft}
                             onChange={(e) => setSearchDraft(e.target.value)}
-                            className="w-full h-10 pl-9 pr-3.5 bg-slate-950 text-slate-100 text-sm rounded-lg border border-slate-700/80 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none placeholder:text-slate-500 transition-all"
+                            className="w-full h-10 pl-9 pr-3.5 bg-yelow-100 text-slate-500 text-sm rounded-lg border border-slate-700/80 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 focus:outline-none placeholder:text-slate-500 transition-all"
                         />
                     </div>
 
@@ -195,9 +195,9 @@ export default function LedgerPage() {
 
             {/* ── Table ── */}
             <Card className="overflow-hidden">
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto bg-slate-600">
                     <table className="w-full text-sm text-left">
-                        <thead className="text-xs text-slate-400 uppercase bg-slate-900/70 border-b border-slate-800">
+                        <thead className="text-xs text-yellow-900 uppercase bg-slate-900/70 border-b border-slate-800">
                             <tr>
                                 <th className="px-5 py-4 font-semibold">Date</th>
                                 <th className="px-5 py-4 font-semibold">Merchant</th>

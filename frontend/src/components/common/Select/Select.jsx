@@ -29,7 +29,7 @@ const Select = React.forwardRef(
                 {label && (
                     <label
                         htmlFor={selectId}
-                        className="text-xs font-semibold text-slate-700 select-none cursor-pointer flex items-center gap-1"
+                        className="text-xs font-semibold text-slate-900 select-none cursor-pointer flex items-center gap-1"
                     >
                         {label}
                         {required && <span className="text-red-500" aria-hidden="true">*</span>}
