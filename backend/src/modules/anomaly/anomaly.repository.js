@@ -1,7 +1,7 @@
 import { pool } from "../../config/db.js";
 
 export const getLargeTransactions = async (
-    threshold = 100
+    threshold = 500
 ) => {
 
     const result = await pool.query(
