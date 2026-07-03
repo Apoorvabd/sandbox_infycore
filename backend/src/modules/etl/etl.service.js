@@ -1,7 +1,8 @@
 import {
     getAllRules,
     getUnprocessedTransactions,
-    updateProcessedTransaction
+    updateProcessedTransaction,
+    resetProcessedTransactions
 } from "./etl.repository.js";
 
 import { normalizeMerchant } from "./normalizer/merchant.normalizer.js";
@@ -45,6 +46,7 @@ import { normalizeMerchant } from "./normalizer/merchant.normalizer.js";
 
 export const processTransactions = async () => {
     const rules=await getAllRules();
+     await resetProcessedTransactions();
     const transactions=await getUnprocessedTransactions();
     const stats={
         processed:0,

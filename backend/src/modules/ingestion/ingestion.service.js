@@ -33,91 +33,31 @@ const runSync = async () => {
         transactionsInserted: 0
     };
 
+    stats.institutionsInserted =await createInstitutionsBulk( institutions );
 
-    // =====================================
-    // INSTITUTIONS
-    // =====================================
-
-    console.log("INSTITUTIONS_INSERT");
-
-    stats.institutionsInserted =
-        await createInstitutionsBulk(
-            institutions
-        );
-
-    console.timeEnd("INSTITUTIONS_INSERT");
-
-    // =====================================
-    // ACCOUNTS PREPARE
-    // =====================================
-
-    console.time("ACCOUNT_TRANSFORM");
 
     const accountsToInsert =
         accounts.map(account => ({
             id: crypto.randomUUID(),
-
-            externalAccountId:
-                account.accountId,
-
-            institutionName:
-                account.institutionId,
-
-            accountName:
-                account.accountName,
-
-            accountType:
-                account.accountType,
-
-            currentBalance:
-                account.currentBalance
+             externalAccountId:    account.accountId,
+             institutionName:    account.institutionId,
+             accountName:    account.accountName,
+             accountType:    account.accountType,
+             currentBalance:    account.currentBalance
         }));
 
-    console.timeEnd("ACCOUNT_TRANSFORM");
-
-    // =====================================
-    // ACCOUNTS INSERT
-    // =====================================
-
-    console.time("ACCOUNT_INSERT");
+    
 
     stats.accountsInserted =
         await createAccountsBulk(
             accountsToInsert
         );
-
-    console.timeEnd("ACCOUNT_INSERT");
-
-    // =====================================
-    // LOAD ACCOUNT MAP
-    // =====================================
-
-    console.time("ACCOUNT_MAP_FETCH");
-
-    const dbAccounts =
-        await getAllAccounts();
-
-    console.timeEnd("ACCOUNT_MAP_FETCH");
-
-    console.time("ACCOUNT_MAP_BUILD");
-
+    const dbAccounts =      await getAllAccounts();
     const accountMap = new Map();
 
     for (const account of dbAccounts) {
-
-        accountMap.set(
-            account.external_account_id,
-            account.id
-        );
+      accountMap.set(account.external_account_id, account.id );
     }
-
-    console.timeEnd("ACCOUNT_MAP_BUILD");
-
-    // =====================================
-    // TRANSACTION TRANSFORM
-    // =====================================
-
-    console.time("TRANSACTION_TRANSFORM");
 
     const transactionsToInsert = [];
 
@@ -146,23 +86,12 @@ const runSync = async () => {
         });
     }
 
-    console.timeEnd("TRANSACTION_TRANSFORM");
-
-    // =====================================
-    // TRANSACTION INSERT
-    // =====================================
-
-    console.time("TRANSACTION_INSERT");
-
     stats.transactionsInserted = await createTransactionsBulk(             transactionsToInsert );
-
-    console.timeEnd("TRANSACTION_INSERT");
-
-    
 
 try{
     const etlResult =
         await processTransactions();
+        console.log("ETL Result:", etlResult);
     return {
         ...stats,
         etl: etlResult
