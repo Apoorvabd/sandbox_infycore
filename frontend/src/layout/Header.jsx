@@ -33,9 +33,9 @@ export default function Header() {
                     <span className="sr-only">View notifications</span>
                     <Bell className="w-5 h-5" aria-hidden="true" />
                 </button>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-500 to-cyan-400 flex items-center justify-center text-white text-xs font-bold border border-sky-200 shadow-md">
+                <a href="/" className="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-500 to-cyan-400 flex items-center justify-center text-white text-xs font-bold border border-sky-200 shadow-md">
                     <Hexagon className="w-4 h-4" />
-                </div>
+                </a>
             </div>
         </header>
     );

@@ -12,7 +12,7 @@ import {
 } from 'recharts';
 import Card from '../../../components/common/Card/Card';
 
-const COLORS = ['#f97316', '#facc15', '#fb923c', '#f59e0b', '#fbbf24', '#fdba74'];
+const COLORS = ['#4fa2d5ff', '#8e57c1ff', '#fb3c5fff', '#f59e0b', '#563e80ff', '#3a913fff'];
 
 export default function ExpenseChart({ cashflow, categoryBreakdown }) {
     const safeCashflow = Array.isArray(cashflow) ? cashflow : [];
@@ -59,8 +59,8 @@ export default function ExpenseChart({ cashflow, categoryBreakdown }) {
                                 contentStyle={{ backgroundColor: '#1e293b', borderColor: '#334155', color: '#f8fafc' }}
                                 itemStyle={{ color: '#f8fafc' }}
                             />
-                            <Bar dataKey="income" name="Income" fill="#f97316" radius={[4, 4, 0, 0]} />
-                            <Bar dataKey="expense" name="Expense" fill="#facc15" radius={[4, 4, 0, 0]} />
+                            <Bar dataKey="income" name="Income" fill="#15bdd7ff" radius={[4, 4, 0, 0]} />
+                            <Bar dataKey="expense" name="Expense" fill="#8d9ba7ff" radius={[4, 4, 0, 0]} />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
