@@ -42,3 +42,5 @@ export const {
 } = anomalySlice.actions;
 
 export default anomalySlice.reducer;
+
+

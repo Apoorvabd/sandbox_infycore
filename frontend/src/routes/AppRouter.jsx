@@ -6,14 +6,15 @@ import Ledger from "../pages/Ledger";
 import Rules from "../pages/Rules";
 import Sandbox from "../pages/Sandbox";
 import NotFound from "../pages/NotFound";
+import Homepage from "../pages/HomePage";
 
 function AppRouter() {
 
     return (
 
         <Routes>
-            <Route path="/" element={<Dashboard />}
-            />
+            {/* <Route path="/" element={<Dashboard />}
+            /> */}
             <Route path="/showcase" element={<Showcase />}
             />
             <Route path="/ledger" element={<Ledger />}
@@ -27,6 +28,7 @@ function AppRouter() {
 
             <Route path="*" element={<NotFound />}
             />
+            <Route path="/home" element={<Homepage />} />
 
         </Routes>
 
