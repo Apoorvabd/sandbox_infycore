@@ -5,12 +5,11 @@ export const normalizeMerchant = (rawMerchant,rules) => {
             return {
                 normalizedMerchant: rule.clean_merchant_name,
                 category:rule.target_category,
-
             };
         }
     }
     return {
-        normalizedMerchant:none,
+        normalizedMerchant:rawMerchant,
         category:"Uncategorized"
     };
 };
