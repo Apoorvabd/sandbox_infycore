@@ -19,13 +19,9 @@ const runSync = async () => {
     // FETCH DATA
     // =====================================
 
-    const [
-        institutionsResponse,
-        accountsResponse,
-        transactionsResponse
-    ] = await Promise.all([
-        axios.get(`${Mock_api}/institutions`),
-        axios.get(`${Mock_api}/accounts`),
+    const [ institutionsResponse, accountsResponse, transactionsResponse ]= await Promise.all([ 
+        axios.get(`${Mock_api}/institutions`), 
+        axios.get(`${Mock_api}/accounts`), 
         axios.get(`${Mock_api}/transactions`)
     ]);
     const institutions = institutionsResponse.data.data;
@@ -127,10 +123,7 @@ const runSync = async () => {
 
     for (const transaction of transactions) {
 
-        const accountId =
-            accountMap.get(
-                transaction.accountId
-            );
+        const accountId = accountMap.get(transaction.accountId  );
 
         if (!accountId) {
             continue;
@@ -139,22 +132,17 @@ const runSync = async () => {
         transactionsToInsert.push({
             id: crypto.randomUUID(),
 
-            externalTransactionId:
-                transaction.transactionId,
+            externalTransactionId: transaction.transactionId,
 
             accountId,
 
-            rawMerchant:
-                transaction.rawMerchant,
+            rawMerchant: transaction.rawMerchant,
 
-            amount:
-                transaction.amount,
+            amount: transaction.amount,
 
-            direction:
-                transaction.direction,
+            direction: transaction.direction,
 
-            clearedDate:
-                transaction.clearedDate
+            clearedDate: transaction.clearedDate
         });
     }
 
@@ -166,28 +154,15 @@ const runSync = async () => {
 
     console.time("TRANSACTION_INSERT");
 
-    stats.transactionsInserted =
-        await createTransactionsBulk(
-            transactionsToInsert
-        );
+    stats.transactionsInserted = await createTransactionsBulk(             transactionsToInsert );
 
     console.timeEnd("TRANSACTION_INSERT");
 
-    // =====================================
-    // ETL
-    // =====================================
+    
 
-    console.log("Starting ETL process...");
 try{
     const etlResult =
         await processTransactions();
-
-
-    // =====================================
-    // TOTAL
-    // =====================================
-
-
     return {
         ...stats,
         etl: etlResult

@@ -1,4 +1,4 @@
- /**
+  /**
  * @swagger
  * /ingestion/sync:
  *   post:

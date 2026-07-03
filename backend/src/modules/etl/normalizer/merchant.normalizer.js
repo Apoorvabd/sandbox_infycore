@@ -4,12 +4,13 @@ export const normalizeMerchant = (rawMerchant,rules) => {
         if (regex.test(rawMerchant)) {
             return {
                 normalizedMerchant: rule.clean_merchant_name,
-                category:rule.target_category
+                category:rule.target_category,
+
             };
         }
     }
     return {
-        normalizedMerchant:rawMerchant,
+        normalizedMerchant:none,
         category:"Uncategorized"
     };
 };
